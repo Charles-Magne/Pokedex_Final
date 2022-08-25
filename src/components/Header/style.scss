@@ -1,0 +1,69 @@
+@use "../../assets/styles/vars.scss";
+
+/*Header*/
+
+/*titre*/
+.title_contener {
+  padding: 1rem 0 0 4rem;
+  background-color: vars.$green-main;
+  box-shadow: 0px 4px 10px vars.$green-black;
+}
+
+.title_main {
+  font-size: 5rem;
+  text-align: center;
+  padding: 2rem 0 0 0;
+  color: white;
+  font-weight: 700;
+}
+
+/*Navbar*/
+.navbar {
+  display: flex;
+  width: 100%;
+  padding: 0 0 0.3rem 0;
+  flex-direction: row;
+  justify-content: center;
+  background-color: vars.$green-main;
+}
+
+.nav-bar_cat {
+  margin: 0 1.8rem 0 0;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/*la search-bar*/
+.search-bar_container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 0 0;
+}
+
+.search-bar {
+  margin: 0 auto 0 auto;
+  font-size: 1.5rem;
+  border: solid 1px red;
+  border-radius: 0.5rem;
+  padding: 0 0 0 0.8rem;
+}
+
+.search_filter {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 8rem 0 8rem;
+  justify-content: space-around;
+}
+
+.search_option {
+  border: solid 1px black;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+}
+
+.number-results {
+  margin: 1rem 0 1rem 2rem;
+  font-style: italic;
+  font-size: 0.8rem;
+}

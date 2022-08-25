@@ -1,0 +1,63 @@
+@use "../../assets/styles/vars.scss";
+
+.card-animal{
+  border: solid 1px vars.$green-main;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+
+}
+
+.img1{
+  width: 35%;
+  height: 35%;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  margin: auto 0 auto 1rem;
+}
+
+.selection-1{
+  margin: 1.2rem 0 0 0;
+}
+
+.name-espece-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.animal-name{
+  display: block;
+  font-size: 1.8rem;
+  margin: 0 1rem 0 2rem;
+  font-weight: 600;
+}
+
+.animal-sort{
+  margin: 0.6rem 0 0 0;
+}
+
+.animal-underSort{
+  margin: 0.6rem 0 0 1rem;
+}
+
+.biome-pays-regime{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0 2rem;
+}
+
+.contenaire-info{
+  margin: 0 0 1rem 0;
+}
+
+.icone{
+  width: 2rem;
+  margin: 0 0 0 0;
+}
+
+.info-name{
+  position: relative;
+  margin:  0 0 1rem 1rem;
+  bottom: 0.8rem;
+}

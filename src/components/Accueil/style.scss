@@ -1,0 +1,91 @@
+
+@use "../../assets/styles/vars.scss";
+
+
+.Pseudo_Body{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.ad-Left{
+  width: 160px;
+  height: 600px;
+  margin: 2rem 0 0 2rem;
+  background-color: #f2f2f2;
+}
+
+//defini la taille de la page
+.page-container{
+  margin: 2rem 4rem;
+  width: 70%; 
+}
+
+.search-and-option-container{
+  padding: 0 0 0 0;
+ border: 1px solid vars.$green-main;
+ border-radius: 0.5rem;
+}
+
+/*la search-bar*/
+.search-bar_container {
+  display: flex;
+  justify-items: center;
+  margin: 1rem 0 0 0;
+}
+
+.search-bar {
+  margin: 0.5rem auto 0 auto;
+  font-size: 1.2rem;
+  border: solid 1px vars.$green-main;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+}
+
+.search_filter {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 8rem 0 8rem;
+  justify-content: space-around;
+}
+
+.search_option {
+  border: solid 1px black;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+  margin: 0 0 1rem 0;
+}
+.arrow_down{
+  width: 0.5rem;
+  margin: 0 0 0 1rem;
+}
+
+.ramdowm_button{
+  margin: 0 0 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid vars.$green-white;
+  background-color: vars.$second-color;
+  box-shadow: 2px 2px 3px vars.$green-black;
+}
+
+.random_icone{
+  position: relative;
+  top: 0.2rem;
+  width: 1rem;
+  margin: 0 0.5rem 0 0;
+}
+
+.number-results {
+  margin: 1rem 0 1rem 2rem;
+  font-style: italic;
+}
+
+.ad-droit{
+  background-color: #f2f2f2;
+  width: 160px;
+  height: 600px;
+  margin: 2rem 0 0 0;
+}
+
