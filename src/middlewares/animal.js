@@ -7,7 +7,7 @@ import { FETCH_ALL_ANIMAL, saveAnimal, FETCH_NORISS, saveNoriss } from '../actio
 const animalMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_ALL_ANIMAL: {
-      const name = 'bird';
+      const name = 'cat';
       axios.get('https://api.api-ninjas.com/v1/animals?name=' + name,
       {headers: {
         'X-Api-Key': 'UHOzPdXKEUQIiy7C4sgD8g==2YxoQdxWsumu5GoW'
@@ -39,7 +39,6 @@ const animalMiddleware = (store) => (next) => (action) => {
             console.log('Response API ->',response.data.value);
             //On envoie le resultat de la requete au reducer qui sera chargé de l'ecriture
             store.dispatch(saveNoriss(response.data));
-            console.log('prout');
           },
         )
         .catch(

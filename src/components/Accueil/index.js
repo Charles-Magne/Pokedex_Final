@@ -1,5 +1,8 @@
 import "./style.scss";
 
+//Les modules de depandances
+import { useSelector } from "react-redux";
+
 //Les composants
 import Header from "../Header";
 import CardAnimal from "../CardAnimal";
@@ -8,12 +11,13 @@ import CardAnimal from "../CardAnimal";
 import arrowDown from "../../assets/icone/fleche-bas.png";
 import random from "../../assets/icone/random.png";
 
-
 // font alsome
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Accueil() {
+  const { list } = useSelector((state) => state.animal);
+  console.log("le state =>", list);
   return (
     <div>
       <Header />
@@ -38,17 +42,28 @@ function Accueil() {
                 <img className="arrow_down" src={arrowDown} alt="arrow_down" />
               </div>
               <button className="ramdowm_button">
-              <img className="random_icone" src={random} alt="random_icone" />
-                Au hasard</button>
+                <img className="random_icone" src={random} alt="random_icone" />
+                Au hasard
+              </button>
             </div>
           </div>
           <div className="number-results">8 Résultats</div>
-          <CardAnimal/>
+          <div className="Card_wraper" >
+            {/*ici on vas rentrer la card animal en fonction du stat */}
+
+            {list.map((list) => (
+              <CardAnimal key={list.id} {...list} />
+            ))}
+
+            {/*ici on vas rentrer la card animal en fonction du stat */}
+          </div>
         </div>
         <div className="ad-droit">Pub2</div>
       </div>
     </div>
   );
 }
+
+
 
 export default Accueil;

@@ -4,7 +4,7 @@ import { SAVE_ANIMAL, SAVE_NORISS } from "../action/animal";
 
 //on appelle le initalSate
 export const initialState = {
-  list: "",
+  list: [],
   fact: '',
 };
 
