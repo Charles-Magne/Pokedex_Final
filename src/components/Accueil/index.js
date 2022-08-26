@@ -1,7 +1,7 @@
 import "./style.scss";
 
 //Les modules de depandances
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 //Les composants
 import Header from "../Header";
@@ -10,14 +10,24 @@ import CardAnimal from "../CardAnimal";
 //les icones
 import arrowDown from "../../assets/icone/fleche-bas.png";
 import random from "../../assets/icone/random.png";
+import { saveSearch } from "../../action/animal";
 
 // font alsome
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 function Accueil() {
+  const dispatch = useDispatch();
+  // Ici on import le sous-state list (l'api) pour l'utiliser dans les card
   const { list } = useSelector((state) => state.animal);
-  console.log("le state =>", list);
+
+  const changeValue = (event) => {
+    dispatch(saveSearch(event.currentTarget.value, 'searchValue'));
+  };
+
+  // Ici on import le state dans la barre de recherche
+  const searchValue = useSelector((state) => state.searchFunction);
+
   return (
     <div>
       <Header />
@@ -26,7 +36,13 @@ function Accueil() {
         <div className="page-container">
           <div className="search-and-option-container">
             <div className="search-bar_container">
-              <input className="search-bar" placeholder="Search"></input>
+              <input
+                type="text"
+                onChange={changeValue}
+                value={searchValue}
+                className="search-bar"
+                placeholder="Search"
+              ></input>
             </div>
             <div className="search_filter">
               <div className="search_filter--biome search_option">
@@ -48,7 +64,7 @@ function Accueil() {
             </div>
           </div>
           <div className="number-results">8 Résultats</div>
-          <div className="Card_wraper" >
+          <div className="Card_wraper">
             {/*ici on vas rentrer la card animal en fonction du stat */}
 
             {list.map((list) => (
@@ -63,7 +79,5 @@ function Accueil() {
     </div>
   );
 }
-
-
 
 export default Accueil;

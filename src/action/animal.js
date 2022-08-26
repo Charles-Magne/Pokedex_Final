@@ -1,10 +1,13 @@
 // Ici on creer une action type => c'est elle qui fait le lien entre le composant, le reducer et le Middleware
 
+
 //fetch sert a recuperer une data depuis une api
 export const FETCH_ALL_ANIMAL = 'FETCH_ALL_ANIMAL';
 
+// APPEL_API 2- l'action que l'on creer et que l'on export va servir a faire le lien entre le composant et les middlewares
 export function fetchAllAnimal() {
   return {
+    //ON defini l'action type
     type: FETCH_ALL_ANIMAL,
   };
 }
@@ -19,20 +22,12 @@ export function saveAnimal(Animal) {
   };
 }
 
-export const FETCH_NORISS = 'FETCH_NORISS';
+//save pour la fonction search
+export const SAVE_SEARCH = 'SAVE_SEARCH';
 
-export function fetchNoriss () {
+export function saveSearch() {
   return {
-    type: FETCH_NORISS,
-  };
-}
-
-//save permet d'enregistrer une data dans le state
-export const SAVE_NORISS = 'SAVE_NORISS';
-
-export function saveNoriss (Noriss) {
-  return {
-    type: SAVE_NORISS,
-    fact: Noriss,
+    type: SAVE_SEARCH,
+    
   };
 }

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import Accueil from "../Accueil";
 
 //les actions
-import { fetchAllAnimal, fetchNoriss } from "../../action/animal.js";
+import { fetchAllAnimal } from "../../action/animal.js";
 
 // == Composant
 function App() {
@@ -15,17 +15,10 @@ function App() {
  
   const dispatch = useDispatch();
 
-  //le use dispatch sert a recuperer une info et a la stocker dans le state
+  // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchAllAnimal());
   }, []
-  );
-
- //des que le app se charge on appel l'api de chuch Noriss
-  useEffect(
-    () => {
-      dispatch(fetchNoriss());
-    }, []
   );
 
   //<Route path="/Ici c'est le chemin de la page " element={<Le element correspond au composant />} /
