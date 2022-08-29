@@ -25,9 +25,10 @@ export function saveAnimal(Animal) {
 //save pour la fonction search
 export const SAVE_SEARCH = 'SAVE_SEARCH';
 
-export function saveSearch() {
+export function saveSearch(value, field) {
   return {
     type: SAVE_SEARCH,
-    
+    value: value,
+    field: field,
   };
 }
