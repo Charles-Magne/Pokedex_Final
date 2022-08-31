@@ -10,24 +10,42 @@ import CardAnimal from "../CardAnimal";
 //les icones
 import arrowDown from "../../assets/icone/fleche-bas.png";
 import random from "../../assets/icone/random.png";
-import { saveSearch } from "../../action/animal";
+import look from "../../assets/icone/search.png";
+
+//Les actions
+import { saveSearch, sendSearch } from "../../action/animal";
 
 // font alsome
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-//import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+//import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
+//---------------------La fonction--------------------------------
 function Accueil() {
+  //---------------------les actions--------------------------------
+  //Importation des datas au chargement
   const dispatch = useDispatch();
+
+  //useSelector = sert a appeler une info du state
+  //const searchState = useSelector((state) => state.animal.searchFunction);
+
   // Ici on import le sous-state list (l'api) pour l'utiliser dans les card
   const { list } = useSelector((state) => state.animal);
 
+  //Envoie de l'input au state
   const changeValue = (event) => {
-    dispatch(saveSearch(event.currentTarget.value, 'searchValue'));
+    dispatch(saveSearch(event.currentTarget.value, "searchValue"));
+  };
+
+  //submit du search pour nouvelle requete api
+  const valideValue = (event) => {
+    event.preventDefault();
+    dispatch(sendSearch(event));
   };
 
   // Ici on import le state dans la barre de recherche
   const searchValue = useSelector((state) => state.searchFunction);
 
+  // ---------------------le composant--------------------------------
   return (
     <div>
       <Header />
@@ -36,27 +54,41 @@ function Accueil() {
         <div className="page-container">
           <div className="search-and-option-container">
             <div className="search-bar_container">
-              <input
-                type="text"
-                onChange={changeValue}
-                value={searchValue}
-                className="search-bar"
-                placeholder="Search"
-              ></input>
+              <form type="submit" onSubmit={valideValue} >
+                <input
+                  type="text"
+                  onChange={changeValue}
+                  value={searchValue}
+                  className="search-bar"
+                  placeholder="Search"
+                ></input>
+                </form>
+              <button
+                onClick={valideValue}
+                className="search-button"
+                type="button"
+              >
+                <img className="search-icone" src={look} />
+              </button>
             </div>
             <div className="search_filter">
-              <div className="search_filter--biome search_option">
+              <select className="search_filter--biome search_option arrow_down" src={arrowDown} alt="arrow_down">
                 Biome
-                <img className="arrow_down" src={arrowDown} alt="arrow_down" />
-              </div>
-              <div className="search_filter--country search_option">
+                <option>Aride</option>
+                <option>Forêt</option>
+              </select>
+              <select className="search_filter--country search_option arrow_down" src={arrowDown} alt="arrow_down" >
                 Pays
-                <img className="arrow_down" src={arrowDown} alt="arrow_down" />
-              </div>
-              <div className="search_filter--alimentation search_option">
-                Omnivore
-                <img className="arrow_down" src={arrowDown} alt="arrow_down" />
-              </div>
+                <option>France</option>
+                <option>Angleterre</option>
+                <option>Etat-unis</option>
+              </select>
+              <select className="search_filter--alimentation search_option arrow_down" src={arrowDown} alt="arrow_down">
+                Régime alimentaire
+                <option>Ommnivore</option>
+                <option>Carnivore</option>
+                <option>Herbivore</option>
+              </select>
               <button className="ramdowm_button">
                 <img className="random_icone" src={random} alt="random_icone" />
                 Au hasard
@@ -68,7 +100,7 @@ function Accueil() {
             {/*ici on vas rentrer la card animal en fonction du stat */}
 
             {list.map((list) => (
-              <CardAnimal key={list.id} {...list} />
+              <CardAnimal key={list.lenth} {...list} />
             ))}
 
             {/*ici on vas rentrer la card animal en fonction du stat */}

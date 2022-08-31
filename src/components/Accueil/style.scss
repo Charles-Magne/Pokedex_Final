@@ -1,8 +1,7 @@
-
 @use "../../assets/styles/vars.scss";
 
 
-.Pseudo_Body{
+.Pseudo_Body {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -10,7 +9,7 @@
 
 }
 
-.ad-Left{
+.ad-Left {
   width: 160px;
   height: 600px;
   margin: 2rem 0 0 2rem;
@@ -18,15 +17,15 @@
 }
 
 //defini la taille de la page
-.page-container{
+.page-container {
   margin: 2rem 4rem;
-  width: 70%; 
+  width: 70%;
 }
 
-.search-and-option-container{
+.search-and-option-container {
   padding: 0 0 0 0;
- border: 1px solid vars.$green-main;
- border-radius: 0.5rem;
+  border: 1px solid vars.$green-main;
+  border-radius: 0.5rem;
 }
 
 /*la search-bar*/
@@ -44,6 +43,25 @@
   padding: 0.3rem 0.8rem;
 }
 
+.search-button {
+  position: relative;
+  right: 51rem;
+  display: flex;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: none;
+  background-color: white;
+  margin: 0.1rem 0 0 0;
+  color: yellow;
+}
+
+.search-icone {
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
 .search_filter {
   display: flex;
   flex-direction: row;
@@ -57,12 +75,13 @@
   padding: 0.3rem 1rem;
   margin: 0 0 1rem 0;
 }
-.arrow_down{
+
+.arrow_down {
   width: 0.5rem;
   margin: 0 0 0 1rem;
 }
 
-.ramdowm_button{
+.ramdowm_button {
   margin: 0 0 1rem 0;
   border-radius: 0.5rem;
   border: 1px solid vars.$green-white;
@@ -70,7 +89,7 @@
   box-shadow: 2px 2px 3px vars.$green-black;
 }
 
-.random_icone{
+.random_icone {
   position: relative;
   top: 0.2rem;
   width: 1rem;
@@ -82,7 +101,7 @@
   font-style: italic;
 }
 
-.Card_wraper{
+.Card_wraper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -90,10 +109,9 @@
   margin: 2rem 0 0 0;
 }
 
-.ad-droit{
+.ad-droit {
   background-color: #f2f2f2;
   width: 160px;
   height: 600px;
   margin: 2rem 0 0 0;
 }
-

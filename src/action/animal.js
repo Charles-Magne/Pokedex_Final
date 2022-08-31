@@ -1,6 +1,5 @@
 // Ici on creer une action type => c'est elle qui fait le lien entre le composant, le reducer et le Middleware
 
-
 //fetch sert a recuperer une data depuis une api
 export const FETCH_ALL_ANIMAL = 'FETCH_ALL_ANIMAL';
 
@@ -30,5 +29,14 @@ export function saveSearch(value, field) {
     type: SAVE_SEARCH,
     value: value,
     field: field,
+  };
+}
+
+//envoie le state en requete lors d'un submit
+export const VALIDE_VALUE = 'VALIDE_VALUE';
+
+export function sendSearch(){
+  return{
+    type: VALIDE_VALUE,
   };
 }
