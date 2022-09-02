@@ -29,13 +29,13 @@ function Accueil() {
   //const searchState = useSelector((state) => state.animal.searchFunction);
 
   // Ici on import le sous-state list (l'api) pour l'utiliser dans les card
-  const { list } = useSelector((state) => state.animal);
+  const list  = useSelector((state) => state.animal.list);
 
   //Envoie de l'input au state
   const changeValue = (event) => {
     dispatch(saveSearch(event.currentTarget.value, "searchValue"));
   };
-
+console.log('Test pour la longeur tableau =>',list['3']);
   //submit du search pour nouvelle requete api
   const valideValue = (event) => {
     event.preventDefault();
@@ -54,7 +54,7 @@ function Accueil() {
         <div className="page-container">
           <div className="search-and-option-container">
             <div className="search-bar_container">
-              <form type="submit" onSubmit={valideValue} >
+              <form className="from-search" type="submit" onSubmit={valideValue} >
                 <input
                   type="text"
                   onChange={changeValue}
@@ -72,36 +72,42 @@ function Accueil() {
               </button>
             </div>
             <div className="search_filter">
-              <select className="search_filter--biome search_option arrow_down" src={arrowDown} alt="arrow_down">
-                Biome
-                <option>Aride</option>
-                <option>Forêt</option>
+              <select className="search_filter--biome search_option arrow_down" label="Prout" src={arrowDown} alt="arrow_down">
+                <option  selected>Biome---(tous)</option>
+                <option  >Aride</option>
+                <option  >Forêt</option>
               </select>
+
               <select className="search_filter--country search_option arrow_down" src={arrowDown} alt="arrow_down" >
-                Pays
-                <option>France</option>
-                <option>Angleterre</option>
-                <option>Etat-unis</option>
+              <option  >Pays---(tous)</option>
+                <option  >France</option>
+                <option  >Angleterre</option>
+                <option  >Etat-unis</option>
               </select>
+
               <select className="search_filter--alimentation search_option arrow_down" src={arrowDown} alt="arrow_down">
-                Régime alimentaire
-                <option>Ommnivore</option>
-                <option>Carnivore</option>
-                <option>Herbivore</option>
+              <option  >Regime alimentaire---(tous)</option>
+                <option  >Ommnivore)</option>
+                <option  >Carnivore</option>
+                <option  >Herbivore</option>
               </select>
+
               <button className="ramdowm_button">
                 <img className="random_icone" src={random} alt="random_icone" />
                 Au hasard
               </button>
             </div>
           </div>
-          <div className="number-results">8 Résultats</div>
+          <div className="number-results">{list.length} Résultats</div>
           <div className="Card_wraper">
+          {list.map((list) => (
+              <CardAnimal key={list.name} {...list} />
+          ))}
             {/*ici on vas rentrer la card animal en fonction du stat */}
 
-            {list.map((list) => (
-              <CardAnimal key={list.lenth} {...list} />
-            ))}
+            {/* V permet de voir toutes les clees possible pour identifier les roussources
+            //!on peut mettre du css dans un console.log
+              console.log('Test =>',Object.keys(list))      */}
 
             {/*ici on vas rentrer la card animal en fonction du stat */}
           </div>
