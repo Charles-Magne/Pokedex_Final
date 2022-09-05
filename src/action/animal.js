@@ -1,9 +1,10 @@
 // Ici on creer une action type => c'est elle qui fait le lien entre le composant, le reducer et le Middleware
 
 //fetch sert a recuperer une data depuis une api
-export const FETCH_ALL_ANIMAL = 'FETCH_ALL_ANIMAL';
+export const FETCH_ALL_ANIMAL = "FETCH_ALL_ANIMAL";
 
 // APPEL_API 2- l'action que l'on creer et que l'on export va servir a faire le lien entre le composant et les middlewares
+
 export function fetchAllAnimal() {
   return {
     //ON defini l'action type
@@ -12,7 +13,7 @@ export function fetchAllAnimal() {
 }
 
 //save permet d'enregistrer une data dans le state
-export const SAVE_ANIMAL = 'SAVE_ANIMAL';
+export const SAVE_ANIMAL = "SAVE_ANIMAL";
 
 export function saveAnimal(Animal) {
   return {
@@ -22,7 +23,7 @@ export function saveAnimal(Animal) {
 }
 
 //save pour la fonction search
-export const SAVE_SEARCH = 'SAVE_SEARCH';
+export const SAVE_SEARCH = "SAVE_SEARCH";
 
 export function saveSearch(value, field) {
   return {
@@ -33,10 +34,29 @@ export function saveSearch(value, field) {
 }
 
 //envoie le state en requete lors d'un submit
-export const VALIDE_VALUE = 'VALIDE_VALUE';
+export const VALIDE_VALUE = "VALIDE_VALUE";
 
-export function sendSearch(){
-  return{
+export function sendSearch() {
+  return {
     type: VALIDE_VALUE,
+  };
+}
+
+export const FETCH_ONE_ANIMAL = "FETCH_ONE_ANIMAL";
+
+//Utiliser lors du clic sur une card
+export function fetchOneAnimal(name) {
+  return {
+    type: FETCH_ONE_ANIMAL,
+    value: name,
+  };
+}
+
+export const SAVE_URL_ANIMAL = "SAVE_URL_ANIMAL";
+
+export function saveUrlAnimal(name) {
+  return {
+    type: SAVE_URL_ANIMAL,
+    value: name,
   };
 }

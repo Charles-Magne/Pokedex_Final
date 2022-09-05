@@ -1,5 +1,7 @@
 import "./style.scss";
 
+
+//les assets
 import face from "../../assets/pictures/face-a-face.jpg";
 import globe from "../../assets/icone/monde.png";
 import biome from "../../assets/icone/savane.png";
@@ -7,12 +9,14 @@ import plate from "../../assets/icone/en-mangeant.png";
 
 // les dependances
 import PropTypesLib from "prop-types";
+import { Link } from "react-router-dom";
 
 //Les actions
 
 function CardAnimal({ name, taxonomy, locations, characteristics }) {
   return (
     <article className="card-animal">
+      <Link to={`/${name}`}></Link>
       <div className="selection-up">
         <span className="animal-name">{name}</span>
         <span className="animal-sort">{taxonomy.order}</span>

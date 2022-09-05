@@ -2,6 +2,7 @@ import "./style.scss";
 
 //Les modules de depandances
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 //Les composants
 import Header from "../Header";
@@ -24,18 +25,17 @@ function Accueil() {
   //---------------------les actions--------------------------------
   //Importation des datas au chargement
   const dispatch = useDispatch();
+  const { name } = useParams();
 
-  //useSelector = sert a appeler une info du state
-  //const searchState = useSelector((state) => state.animal.searchFunction);
+// Ici on import le sous-state list (l'api) pour l'utiliser dans les card
+const list  = useSelector((state) => state.animal.list);
 
-  // Ici on import le sous-state list (l'api) pour l'utiliser dans les card
-  const list  = useSelector((state) => state.animal.list);
 
-  //Envoie de l'input au state
-  const changeValue = (event) => {
-    dispatch(saveSearch(event.currentTarget.value, "searchValue"));
-  };
-console.log('Test pour la longeur tableau =>',list['3']);
+//Envoie de l'input au state
+const changeValue = (event) => {
+  dispatch(saveSearch(event.currentTarget.value, "searchValue"));
+};
+
   //submit du search pour nouvelle requete api
   const valideValue = (event) => {
     event.preventDefault();
