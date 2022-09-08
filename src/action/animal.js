@@ -45,10 +45,10 @@ export function sendSearch() {
 export const FETCH_ONE_ANIMAL = "FETCH_ONE_ANIMAL";
 
 //Utiliser lors du clic sur une card
-export function fetchOneAnimal(name) {
+export function fetchOneAnimal(nameUrl) {
   return {
     type: FETCH_ONE_ANIMAL,
-    value: name,
+    value: nameUrl,
   };
 }
 

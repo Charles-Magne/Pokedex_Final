@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 //On import les composants dont on a besoin
 import Accueil from "../Accueil";
 import FicheDetail from "../FicheDetail";
+import ChaineAlimentaireAccueuil from "../ChaineAlimentaireAccueil";
+import Classification from "../Classification";
 
 //les actions
 import { fetchAllAnimal } from "../../action/animal.js";
@@ -27,7 +29,9 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Accueil />} />
-        <Route path="/:name" element={<FicheDetail />}/>
+        <Route path="/Animal/:name" element={<FicheDetail />}/>
+        <Route path="/Chaine_Alimentaire" element={<ChaineAlimentaireAccueuil/>} />
+        <Route path="/Classification_especes" element={<Classification/>}/>
       </Routes>
     </div>
   );

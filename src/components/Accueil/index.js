@@ -25,7 +25,7 @@ function Accueil() {
   //---------------------les actions--------------------------------
   //Importation des datas au chargement
   const dispatch = useDispatch();
-  const { name } = useParams();
+  const { nameUrl } = useParams();
 
 // Ici on import le sous-state list (l'api) pour l'utiliser dans les card
 const list  = useSelector((state) => state.animal.list);
