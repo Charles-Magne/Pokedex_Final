@@ -63,9 +63,13 @@ function FicheDetail() {
       <div className='contener-main' >
       <h1 className='Titre-name' > {name}</h1>
       <img className='picture-animal' src={face} alt="animal picture" /> {/* l'iamge du l'animal*/}
-      <p> {Location0} </p>
-      <p> {Location1} </p>
-      <p> {Location2} </p>
+
+      {/****description******* */}
+      <p> { characteristics0.slogan }</p>
+
+
+
+      
 
       <p> { taxonomy0.class }</p>
       <p> { taxonomy0.family }</p>
@@ -82,7 +86,11 @@ function FicheDetail() {
       <p> { characteristics0.weight }</p>
       <p> { characteristics0.skin_type }</p>
 
+
       {/****enviroment******* */}
+      <p> {Location0} </p>
+      <p> {Location1} </p>
+      <p> {Location2} </p>
       <p> { characteristics0.water_type }</p>
 
       {/****Reproduction******* */}
@@ -99,8 +107,6 @@ function FicheDetail() {
       <p> { characteristics0.prey }</p>
       <p> { characteristics0.main_prey }</p>
 
-      {/****description******* */}
-      <p> { characteristics0.slogan }</p>
 
       {/****mode de vie******* */}
       <p> { characteristics0.group_behavior }</p>
