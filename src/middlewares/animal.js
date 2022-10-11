@@ -79,8 +79,10 @@ const animalMiddleware = (store) => (next) => (action) => {
       )
       .then(
         (Response) => {
-          console.log('Response API pour URL ->', Response.data);
-          store.dispatch(saveUrlAnimal(Response.data));
+          console.log('Response API pour URL ->', Response.data); // recoit un array
+          console.log('Response API pour URL TEST ->', {...Response.data}); // recoit un object
+          console.log('Response API pour URL TEST 2 ->', {...Response.data[0]}); // recoit un ???
+          store.dispatch(saveUrlAnimal({...Response.data[0]}));
         },
       )
       .catch(

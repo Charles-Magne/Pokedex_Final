@@ -39,7 +39,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
         <div className="selection-down__right">
           <div className="contenaire-info">
             <img className="icone_world icone" src={biome} alt="word_icone" />
-            <span className="info-name">{characteristics.habitat}</span>
+            <span className="info-name"> {characteristics.habitat}</span>
           </div>
           <div className="contenaire-info">
             <img className="icone_world icone" src={globe} alt="world icone" />

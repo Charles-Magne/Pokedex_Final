@@ -7,7 +7,7 @@ export const initialState = {
   list: [],
   searchFunction: "",
   slugUrl: "", // ne sert pas pour le moment
-  SlugFiche: [],
+  SlugFiche: null,
 };
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
 function animalReducer(state = initialState, action = {}) {
