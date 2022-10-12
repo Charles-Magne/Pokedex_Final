@@ -19,6 +19,7 @@ function FicheDetail() {
   const { name } = useParams();
   console.log("Le Slug=>", name);
 
+  //On initie le dispatch
   const dispatch = useDispatch();
   //console.log('les proptype de la fiche =>', FicheDetail.prototype[name]);
 
@@ -31,6 +32,7 @@ function FicheDetail() {
     dispatch(fetchOneAnimal(name));
   }, []);
 
+  //On indique ou sont les information et ce qui nous interesse
   const animalSlug = useSelector((state) => state.animal.SlugFiche);
   const data = { ...animalSlug };
   const Location0 = { ...data.locations }[0];
@@ -38,6 +40,8 @@ function FicheDetail() {
   const Location2 = { ...data.locations }[2];
   const taxonomy0 = { ...data.taxonomy };
   const characteristics0 = { ...data.characteristics };
+
+  //Je ne veux pas afficher les infos vides => if (data = "") { display = none}
 
   console.log("test DataTransfer", { ...animalSlug }); //OK Generale
   console.log("test DataTransfer1", { ...data.locations }[0]); //OK
@@ -103,9 +107,7 @@ function FicheDetail() {
                 </div>
                 <div className="Info-generique">
                   <p className="titre-info">Estimated_population_size</p>
-                  <p className="dataToGet">
-                    {" "}
-                    {characteristics0.estimated_population_size}
+                  <p className="dataToGet"> {characteristics0.estimated_population_size}
                   </p>
                 </div>
                 <div className="Info-generique">

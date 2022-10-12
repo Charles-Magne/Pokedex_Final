@@ -8,9 +8,9 @@
 
 .Titre-name{
   text-align: center;
-  font-weight: 500;
-  font-size: 1.7rem;
-  margin: 0 0 1rem 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 1.2rem 0 2rem 0;
   color: vars.$green-main;
 }
 
@@ -21,32 +21,37 @@ display: flex;
 .contener-picture{
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .picture-animal{
-  width: 35rem;
-  height: 35rem;
-margin: 0 0 0 10rem;
+  position: sticky;
+  top: 1.5rem;
+  width: 40rem;
+  height: 40rem;
+margin: 0 auto 0 auto;
 border-radius: 0.5rem;
 overflow-y:visible;
 overflow-x: visible;
-scroll-margin-block: 20rem;
 }
 
 .description-animal{
+  position: sticky;
+  top: 42rem;
   margin: 1rem 0 0 0 ;
   align-self: center;
   font-size: 1.2rem;
 }
 
 .Contener-infos{
-  margin: 0 0 0 10rem;
+  margin: 0 auto 0 auto;
+  
 }
 
 .contener-generique{
   margin: 0 0 1rem 0;
   border: 1px solid vars.$green-main;
-  width: 40rem;
+  width: 50rem;
   display: flex;
   flex-direction: column;
   font-size: 1.2rem;
