@@ -1,18 +1,87 @@
+@use "../../assets/styles/vars.scss";
+
 
 .contener-main{
-  margin: 1rem 0 0 0;
+  margin: 1rem 1.5rem 0 1.5rem;
   
-  background-color: red;
-  
-}
-
-.picture-animal{
-  width: 10rem;
-  height: 10rem;
 }
 
 .Titre-name{
   text-align: center;
   font-weight: 500;
   font-size: 1.7rem;
+  margin: 0 0 1rem 0;
+  color: vars.$green-main;
+}
+
+.contener-fiche{
+display: flex;
+}
+
+.contener-picture{
+  display: flex;
+  flex-direction: column;
+}
+
+.picture-animal{
+  width: 35rem;
+  height: 35rem;
+margin: 0 0 0 10rem;
+border-radius: 0.5rem;
+overflow-y:visible;
+overflow-x: visible;
+scroll-margin-block: 20rem;
+}
+
+.description-animal{
+  margin: 1rem 0 0 0 ;
+  align-self: center;
+  font-size: 1.2rem;
+}
+
+.Contener-infos{
+  margin: 0 0 0 10rem;
+}
+
+.contener-generique{
+  margin: 0 0 1rem 0;
+  border: 1px solid vars.$green-main;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  border-radius: 0.2rem;
+}
+
+.wrapper-info{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.Info-generique{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 1rem;
+}
+
+.titre-info{
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+}
+
+.titre-generique{
+  background-color:vars.$green-main;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 1rem ;
+  padding: 0.5rem 0 ;
+  border-radius: 0.2rem;
+}
+
+.contener-none{
+  display: none;
 }
