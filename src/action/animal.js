@@ -52,6 +52,7 @@ export function fetchOneAnimal(nameUrl) {
   };
 }
 
+// utiliser pour recevoir les datas d'un seul animal qu'on envoie au stat
 export const SAVE_URL_ANIMAL = "SAVE_URL_ANIMAL";
 
 export function saveUrlAnimal(name) {
