@@ -10,6 +10,8 @@
 }
 
 .ad-Left {
+  position: sticky;
+  top: 6rem;
   width: 160px;
   height: 600px;
   margin: 2rem 0 0 2rem;
@@ -119,6 +121,8 @@
 }
 
 .ad-droit {
+  position: sticky;
+  top: 6rem;
   background-color: #f2f2f2;
   width: 160px;
   height: 600px;

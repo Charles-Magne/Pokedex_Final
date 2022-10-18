@@ -1,8 +1,11 @@
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
+  const dispatch = useDispatch;
 //les actions
 import { FETCH_ALL_ANIMAL, saveAnimal, VALIDE_VALUE, FETCH_ONE_ANIMAL, saveUrlAnimal } from '../action/animal';
 // On branche le middleware au store
+
 // APPEL_API 3- ici on recupere l'action exporté juste au dessus et lui demande de recuperer les datas voulu 
 const animalMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -21,6 +24,7 @@ const animalMiddleware = (store) => (next) => (action) => {
         (Response) => {
           console.log('Response API ->', Response.data);
           store.dispatch(saveAnimal(Response.data));
+
         },
       )
       .catch(

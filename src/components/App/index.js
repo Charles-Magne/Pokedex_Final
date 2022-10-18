@@ -11,6 +11,7 @@ import Classification from "../Classification";
 
 //les actions
 import { fetchAllAnimal } from "../../action/animal.js";
+import { fetchAnimalPhoto } from "../../action/animalPhoto.js";
 
 // == Composant
 function App() {
@@ -21,6 +22,8 @@ function App() {
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchAllAnimal());
+     // V Provisoire lorsque on charge les infos on envoie une requete a paxabay pour les photos
+     dispatch(fetchAnimalPhoto());
   }, []
   );
 

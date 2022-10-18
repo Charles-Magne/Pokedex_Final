@@ -3,6 +3,7 @@ import "./style.scss";
 //Les modules de depandances
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 //Les composants
 import Header from "../Header";
@@ -15,6 +16,7 @@ import look from "../../assets/icone/search.png";
 
 //Les actions
 import { saveSearch, sendSearch } from "../../action/animal";
+
 
 // font alsome
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
