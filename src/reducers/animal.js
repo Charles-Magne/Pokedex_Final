@@ -4,10 +4,10 @@ import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL } from "../action/animal";
 
 //on appelle le initalSate
 export const initialState = {
-  list: [],
-  searchFunction: "",
-  slugUrl: "", // ne sert pas pour le moment
-  SlugFiche: null,
+  list: [], // les data que l'on recoit de l'api encyclopedie
+  searchFunction: "", // le champs controlé de recherche
+  slugUrl: "", // le slug de l'url
+  SlugFiche: null, // les infos que l'on retrouve sur la fiche d'un animal
 };
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
 function animalReducer(state = initialState, action = {}) {
