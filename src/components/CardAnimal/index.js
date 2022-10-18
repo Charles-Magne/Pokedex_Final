@@ -12,6 +12,7 @@ import plate from "../../assets/icone/en-mangeant.png";
 import PropTypesLib from "prop-types";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 //Les actions
 
@@ -37,6 +38,18 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
   })
 
+
+  const listPicture = useSelector((state) => state.animal.listPhoto);
+  console.log('ce que l\'on veut afficher (photo) =>',listPicture); 
+
+  const listPhotoSommaire =  { ...listPicture};
+
+  const listPhotoSommaire1 = { ...listPhotoSommaire.hits }[0];
+  
+  console.log('ce que l\'on veut afficher (photo) 2 =>',listPhotoSommaire1); 
+
+
+
   const handleClickDetail = (event) => {
     event.preventDefault();
   }
@@ -53,7 +66,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
       </div>
       <div className="selection-down">
         <Link to={`/Animal/${name}`}>
-        <img className="img1" src={face} alt="animal picture" />
+        <img className="img1" src={listPhotoSommaire1.largeImageURL} alt="animal picture" />
         </Link>
         <div className="selection-down__right">
           <div className="contenaire-info">

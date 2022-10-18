@@ -1,6 +1,7 @@
 // ici on import les actions
 
 import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL } from "../action/animal";
+import { SAVE_ANIMAL_PHOTO } from "../action/animalPhoto";
 
 //on appelle le initalSate
 export const initialState = {
@@ -8,7 +9,9 @@ export const initialState = {
   searchFunction: "", // le champs controlé de recherche
   slugUrl: "", // le slug de l'url
   SlugFiche: null, // les infos que l'on retrouve sur la fiche d'un animal
+  listPhoto: null,
 };
+
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
 function animalReducer(state = initialState, action = {}) {
   switch (action.type) {
@@ -31,6 +34,13 @@ function animalReducer(state = initialState, action = {}) {
         ...state,
         SlugFiche: action.value,
       };
+
+      // Ici on gere les photos de l'acceuil 
+      case SAVE_ANIMAL_PHOTO:
+        return {
+          ...state,
+          listPhoto: action.value,
+        };
 
     //rien ne change en dessous
     default:
