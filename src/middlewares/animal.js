@@ -97,6 +97,8 @@ const animalMiddleware = (store) => (next) => (action) => {
       return next(action);
     }
 
+
+
     // V Cette partie ne bouge pas 
     default:
       return next(action);

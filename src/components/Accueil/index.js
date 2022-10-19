@@ -25,6 +25,7 @@ import { saveSearch, sendSearch } from "../../action/animal";
 //---------------------La fonction--------------------------------
 function Accueil() {
   //---------------------les actions--------------------------------
+  
   //Importation des datas au chargement
   const dispatch = useDispatch();
   const { nameUrl } = useParams();

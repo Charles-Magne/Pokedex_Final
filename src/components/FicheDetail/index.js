@@ -16,6 +16,7 @@ import { fetchOneAnimal, saveUrlAnimal } from "../../action/animal";
 
 //****************** Le composant *******************
 function FicheDetail() {
+
   //le useParmas permet d'extraire le slug de l'adresse web // la const doit porter le meme nome que la data que l'on souhaite extraire de l'url
   const { name } = useParams();
   console.log("Le Slug=>", name);
@@ -42,6 +43,34 @@ function FicheDetail() {
     dispatch(fetchOneAnimal(name));
   }, []);
 
+  /*// On vient choper la photo de l'animal dans le reducer (stat)
+  const pictureStat = useSelector((state) => state.animal.PictureUnique);
+  console.log('la photo =>', pictureStat);
+
+  const pictureData = { ...pictureStat };
+  console.log('la photo plus precis =>', pictureData);
+
+  const Picture = { ...pictureData.hits}[0];
+  console.log('la photo unique =>', Picture );
+
+  const pictureLarge = { Picture.largeImageURL };
+*/
+ // -------------------
+
+
+  const listPicture = useSelector((state) => state.animal.PictureUnique);
+  console.log('ce que l\'on veut afficher (photo) =>',listPicture); 
+
+  const listPhotoSommaire =  { ...listPicture};
+
+  const listPhotoSommaire1 = { ...listPhotoSommaire.hits }[0];
+
+  const photoPicture = { ...listPhotoSommaire1 };
+  
+  console.log('ce que l\'on veut afficher (photo) 2 =>',photoPicture.id);
+
+  //--------------------
+
   //On indique ou sont les information et ce qui nous interesse
   const animalSlug = useSelector((state) => state.animal.SlugFiche);
   const data = { ...animalSlug };
@@ -62,10 +91,6 @@ function FicheDetail() {
     //On vient cibler l'objet taxonomy On veut passer en block les infos contenu dedans 
   const characteristics0 = { ...data.characteristics };
 
-
-  console.log("test DataTransfer", { ...animalSlug }); //OK Generale
-  console.log("test DataTransfer1", { ...data.locations }[0]); //OK
-  console.log("test DataTransfer2", { ...data.characteristics }); //OK
 
   // console.log('location une : ',locations[0][0]);
   // console.log('type : ', typeof locations);
@@ -186,10 +211,8 @@ if (taxonomy0.family !== undefined) {
 const genusDiv = document.querySelector(".genus");
 if (taxonomy0.genus !== undefined) {
   genusDiv.style.display = "flex";
-  console.log('test');
 } else {
   genusDiv.style.display = "none";
-  console.log('on check =>', characteristics0.genus);
 }
 
 {/* ******************** Le kingdom ****************** */}
@@ -404,12 +427,12 @@ if (characteristics0.training !== undefined && characteristics0.temperament !== 
   educationDiv.style.display = "flex";
 } else {
   educationDiv.style.display = "none";
-  console.log('on cache');
 }
 
 
 })
 
+ // ---------------------le composant--------------------------------
 
   return (
     <div>
@@ -422,9 +445,9 @@ if (characteristics0.training !== undefined && characteristics0.temperament !== 
             {/* l'image du l'animal*/}
             <img
               className="picture-animal"
-              src={face}
+              src={ photoPicture.largeImageURL }
               alt="animal picture"
-            />{" "}
+            />
             {/****description******* */}
             <p className="description-animal"> {characteristics0.slogan}</p>
           </div>
