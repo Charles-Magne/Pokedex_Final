@@ -57,6 +57,7 @@ function FicheDetail() {
 */
  // -------------------
 
+ 
 
   const listPicture = useSelector((state) => state.animal.PictureUnique);
   console.log('ce que l\'on veut afficher (photo) =>',listPicture); 

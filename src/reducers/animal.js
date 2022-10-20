@@ -1,7 +1,7 @@
 // ici on import les actions
 
 import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL } from "../action/animal";
-import { SAVE_ANIMAL_PHOTO, SAVE_ONE_PHOTO, SLUG_PHOTO } from "../action/animalPhoto";
+import { SAVE_ANIMAL_PHOTO, SAVE_ONE_PHOTO } from "../action/animalPhoto";
 
 //on appelle le initalSate
 export const initialState = {
@@ -51,12 +51,7 @@ function animalReducer(state = initialState, action = {}) {
           PictureUnique: action.value,
         };
 
-        // On veut mettre le slug dans le state
-        case SLUG_PHOTO:
-          return {
-            ...state,
-            slugUrl: action.value,
-          };
+        
 
     //rien ne change en dessous
     default:

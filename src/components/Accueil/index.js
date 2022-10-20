@@ -25,7 +25,7 @@ import { saveSearch, sendSearch } from "../../action/animal";
 //---------------------La fonction--------------------------------
 function Accueil() {
   //---------------------les actions--------------------------------
-  
+
   //Importation des datas au chargement
   const dispatch = useDispatch();
   const { nameUrl } = useParams();
@@ -47,6 +47,7 @@ function Accueil() {
 
   // Ici on import le state dans la barre de recherche
   const searchValue = useSelector((state) => state.searchFunction);
+
 
   // ---------------------le composant--------------------------------
   return (

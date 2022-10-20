@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { FETCH_ANIMAL_PHOTO, saveAnimalPhoto, saveOnePhoto } from "../action/animalPhoto";
+import { FETCH_ANIMAL_PHOTO, saveAnimalPhoto, saveOnePhoto, FETCH_ALL_IMG_CARD } from "../action/animalPhoto";
 import { FETCH_ONE_ANIMAL } from "../action/animal";
 //! il faut vraiment nommer le site pixel bay et l'auteur de la photo
 
@@ -51,6 +51,32 @@ const animal_photoMiddleware = (store) => (next) => (action) => {
         });
       return next(action);
     }
+
+    /************************************************************ */
+      //La requet de toutes les photos lors du chargement des cards
+/************************************************************ */
+
+
+    case FETCH_ALL_IMG_CARD: {
+      /************************************************************ */
+      //le 'token'
+      const API_KEY = "30678927-12f3c36eb238a20343ea597b1";
+      const route = "https://pixabay.com/api";
+      const recherche = action.value;
+      console.log('Middelwarephoto =>', action.value);
+      //la route api
+      axios
+        .get("https://pixabay.com/api/?key="+ API_KEY+"&q="+recherche+"&category=animals,nature&image_type=photo&per_page=3&orientation=horizontal&editors_choice=true")
+        .then((Response) => {
+          console.log("Response API Photo ->", Response.data);
+          store.dispatch(saveOnePhoto(Response.data));
+        })
+        .catch((error) => {
+          console.log("les photos =>", error);
+        });
+      return next(action);
+    }
+    
 
     // V pas touche 
     default: 

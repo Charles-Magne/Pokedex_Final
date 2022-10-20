@@ -30,11 +30,16 @@ export function saveOnePhoto (value) {
   };
 }
 
-export const SLUG_PHOTO = "SLUG_PHOTO";
 
-export function slugPhoto (urlSlug) {
+export const FETCH_ALL_IMG_CARD = "FETCH_ALL_IMG_CARD";
+
+export function fetchAllImgCard (value) {
   return {
-    type: SLUG_PHOTO,
-    urlSlug: urlSlug,
+    type: FETCH_ALL_IMG_CARD,
+    value: value,
   };
 }
+
+
+
+

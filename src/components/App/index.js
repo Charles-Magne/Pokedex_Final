@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchAllAnimal());
      // V Provisoire lorsque on charge les infos on envoie une requete a paxabay pour les photos
-     dispatch(fetchAnimalPhoto());
+    dispatch(fetchAnimalPhoto());
   }, []
   );
 

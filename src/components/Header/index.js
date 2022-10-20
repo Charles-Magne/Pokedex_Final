@@ -69,7 +69,7 @@ const handleClassi = event => {
     <div>
       <div className="title_contener">
         <Link to="/">
-          <span className="title_main">Anim'O</span>
+          <span className="title_main">Animal</span>
         </Link>
         <nav className="navbar">
           {/* En dessous placer le toggle                   V*/}
