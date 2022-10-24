@@ -2,7 +2,7 @@ import "./style.scss";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { titreBlanc } from "../../assets/pictures/Titre.png";
+import titreBlanc  from "../../assets/pictures/Anim'o.png";
 
 
 // les actions
@@ -70,8 +70,7 @@ const handleClassi = event => {
     <div>
       <div className="title_contener">
         <Link to="/">
-          <img>{ titreBlanc }</img>
-          <span className="title_main">Animal</span>
+          <img className="titleMain" src={titreBlanc}/>
         </Link>
         <nav className="navbar">
           {/* En dessous placer le toggle                   V*/}
