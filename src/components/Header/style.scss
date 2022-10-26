@@ -1,5 +1,7 @@
 @use "../../assets/styles/vars.scss";
 
+
+
 /*Header*/
 
 /*titre*/
@@ -10,7 +12,16 @@
 }
 
 .titleMain {
-  height: 12rem;
+  height: 4rem;
+}
+
+.titleComment{
+  position: absolute;
+  left: 10px;
+  font-size: 1rem;
+  color: white;
+  font-family: vars.$police-child;
+
 }
 
 /*Navbar*/
@@ -21,6 +32,8 @@
   flex-direction: row;
   justify-content: center;
   background-color: vars.$green-main;
+  font-family: vars.$police-Main ;
+  
 }
 
 .nav-bar_cat {
