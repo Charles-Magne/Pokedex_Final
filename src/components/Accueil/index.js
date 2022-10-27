@@ -52,7 +52,6 @@ function Accueil() {
   // ---------------------le composant--------------------------------
   return (
     <div>
-      <Header />
       <div className="Pseudo_Body">
         <div className="ad-Left">Pub1</div>
         <div className="page-container">

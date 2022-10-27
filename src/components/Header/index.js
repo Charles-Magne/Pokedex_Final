@@ -16,27 +16,27 @@ function Header() {
 //const location = useLocation;
 
   //console.log('la route',location);
+  console.log('Je suis le header');
 
   const clicEncyclo = document.querySelector('.nav-bar-encyclo');
   const clicChaine = document.querySelector('.nav-bar-Chaine');
   const clicClassi = document.querySelector('.nav-bar-Classi')
 
-const handleEncyclo = event => {
+const handleEncyclo = (event) => {
   //On active la page
   clicEncyclo.classList.add('nav-bar_cat-click');
   clicEncyclo.classList.remove('nav-bar_cat');
+
 // On desactive
   clicChaine.classList.remove('nav-bar_cat-click');
   clicChaine.classList.add('nav-bar_cat');
 
   clicClassi.classList.remove('nav-bar_cat-click');
   clicClassi.classList.add('nav-bar_cat');
-
-  document.location.href = "/";
   console.log('ca clique');
-}
+};
 
-const handleChaine = event => {
+const handleChaine = (event) => {
    //On active la page
   clicChaine.classList.add('nav-bar_cat-click');
   clicChaine.classList.remove('nav-bar_cat');
@@ -48,10 +48,10 @@ const handleChaine = event => {
   clicClassi.classList.remove('nav-bar_cat-click');
   clicClassi.classList.add('nav-bar_cat');
 
-console.log('coucou');
-}
+console.log('ici ca clique');
+};
 
-const handleClassi = event => {
+const handleClassi = (event) => {
 
   clicClassi.classList.add('nav-bar_cat-click');
   clicClassi.classList.remove('nav-bar_cat');
@@ -62,7 +62,9 @@ const handleClassi = event => {
 
   clicChaine.classList.remove('nav-bar_cat-click');
   clicChaine.classList.add('nav-bar_cat');
-}
+
+  console.log('Ca clique aussi');
+};
 
 
 
@@ -75,13 +77,13 @@ const handleClassi = event => {
         </Link>
         <nav className="navbar">
           {/* En dessous placer le toggle                   V*/}
-          <Link onClick={handleEncyclo} to="/" className="nav-bar_cat-click nav-bar-encyclo">
+          <Link onClick={handleEncyclo} to="/" className="nav-bar-encyclo nav-bar_cat-click">
             Encyclopedie
           </Link>
           <Link onClick={handleChaine} to="/Chaine_Alimentaire" className="nav-bar-Chaine nav-bar_cat">
             Chaine alimentaire
           </Link>
-          <Link onClick={handleClassi} to="/Classification_especes" className="nav-bar_cat nav-bar-Classi">
+          <Link onClick={handleClassi} to="/Classification_especes" className="nav-bar-Classi nav-bar_cat">
             Classification des espèces
           </Link>
         </nav>

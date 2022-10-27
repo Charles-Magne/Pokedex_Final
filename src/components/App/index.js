@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 //On import les composants dont on a besoin
+import Header from "../Header";
 import Accueil from "../Accueil";
 import FicheDetail from "../FicheDetail";
 import ChaineAlimentaireAccueuil from "../ChaineAlimentaireAccueil";
@@ -30,6 +31,7 @@ function App() {
   //<Route path="/Ici c'est le chemin de la page " element={<Le element correspond au composant />} /
   return (
     <div className="app">
+      <Header />
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/Animal/:name" element={<FicheDetail />}/>

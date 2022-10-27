@@ -437,7 +437,6 @@ if (characteristics0.training !== undefined && characteristics0.temperament !== 
 
   return (
     <div>
-      <Header />
       <div className="contener-main">
         
         <div className="contener-fiche">

@@ -31,15 +31,15 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
       habitat.textContent = "Inconnu";
     } else {
       console.log('on affiche');
-    }
+    }*/
 
     const locations = document.querySelector('.info-locations');
     if (locations !== undefined) {
       locations.textContent = "Inconnu";
     } else {
       console.log('on affiche');
-    }*/
-  }, []);
+    }
+  },);
 
   /*useEffect(() => {
     // On veut recup un objet directement depuis l'API
