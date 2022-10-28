@@ -13,6 +13,8 @@
   font-weight: 700;
   font-size: 1.8rem;
   margin: 2.2rem 0 3rem 0;
+  font-family: vars.$police-Main;
+  color: vars.$green-main;
 }
 
 .contener-fiche{
@@ -42,10 +44,16 @@ overflow-x: visible;
   margin: 1rem 0 0 0 ;
   align-self: center;
   font-size: 1.2rem;
+  font-family: vars.$police-Main;
+  color: vars.$green-main;
+  font-weight: 700;
+
 }
 
 .Contener-infos{
-  margin: 7rem auto 0 auto;
+  margin: 7rem auto 4rem auto;
+  font-family: vars.$police-Main;
+
 }
 
 .contener-generique{
@@ -73,7 +81,7 @@ overflow-x: visible;
 }
 
 .titre-info{
-  font-weight: bold;
+  font-weight: 900;
   margin: 0 0 0.5rem 0;
 }
 
@@ -89,6 +97,7 @@ overflow-x: visible;
   margin: 1rem 1rem ;
   padding: 0.5rem 0 ;
   border-radius: 0.2rem;
+  font-weight: 900;
 }
 
 .contener-none{

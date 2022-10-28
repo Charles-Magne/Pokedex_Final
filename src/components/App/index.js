@@ -9,10 +9,13 @@ import Accueil from "../Accueil";
 import FicheDetail from "../FicheDetail";
 import ChaineAlimentaireAccueuil from "../ChaineAlimentaireAccueil";
 import Classification from "../Classification";
+import Footer from "../Footer";
+import Team from "../Team";
 
 //les actions
 import { fetchAllAnimal } from "../../action/animal.js";
 import { fetchAnimalPhoto } from "../../action/animalPhoto.js";
+
 
 // == Composant
 function App() {
@@ -37,7 +40,9 @@ function App() {
         <Route path="/Animal/:name" element={<FicheDetail />}/>
         <Route path="/Chaine_Alimentaire" element={<ChaineAlimentaireAccueuil/>} />
         <Route path="/Classification_especes" element={<Classification/>}/>
+        <Route path="/Team" element={<Team/>}/>
       </Routes>
+      <Footer />
     </div>
   );
 }

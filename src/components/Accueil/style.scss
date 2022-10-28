@@ -52,6 +52,8 @@
   padding: 0.3rem 0.8rem;
   z-index: 2;
   background: none;
+  font-family: vars.$police-Main;
+  font-weight: 700;
 }
 
 .search-button {
@@ -89,11 +91,13 @@
 
 .search_option {
   border: solid 1px vars.$green-white;
-  border-radius: 0.1rem;
+  border-radius: 0.3rem;
   padding: 0.3rem 1rem;
   margin: 0 0 1rem 0;
   background-color: vars.$green-main;
   color: white;
+  font-family: vars.$police-Main;
+  font-weight: 700;
 }
 
 .ramdowm_button {

@@ -12,10 +12,11 @@ import CardAnimal from "../CardAnimal";
 //les icones
 import arrowDown from "../../assets/icone/fleche-bas.png";
 import random from "../../assets/icone/random.png";
-import look from "../../assets/icone/search.png";
+import look from "../../assets/icone/Search.png";
 
 //Les actions
 import { saveSearch, sendSearch } from "../../action/animal";
+import { ClickHeaderEncyclo } from "../../action/link.js";
 
 
 // font alsome
@@ -47,6 +48,9 @@ function Accueil() {
 
   // Ici on import le state dans la barre de recherche
   const searchValue = useSelector((state) => state.searchFunction);
+
+  //Ici on n'indique qu'on se trouve sur l'acceuil
+  dispatch(ClickHeaderEncyclo("Encyclo"));
 
 
   // ---------------------le composant--------------------------------

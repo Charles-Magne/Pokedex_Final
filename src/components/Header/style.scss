@@ -54,6 +54,11 @@
   background-color: vars.$green-black ;
 }
 
+.nav-bar_cat:active{
+  color: red;
+}
+
+
 .nav-bar_cat-click {
   margin: 0.1rem 2rem 0 0;
   padding: 0.2rem 0.1em;

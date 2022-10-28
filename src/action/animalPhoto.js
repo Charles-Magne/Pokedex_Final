@@ -1,7 +1,6 @@
 
 // Des que l'on a recu les infos sur les animaux on envoie une requete pour trouver les photos
 
-import { func } from "prop-types";
 
 export const FETCH_ANIMAL_PHOTO = "FETCH_ANIMAL_PHOTO";
 

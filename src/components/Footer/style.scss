@@ -1,0 +1,16 @@
+@use "../../assets/styles/vars.scss";
+
+.contenerMain{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0rem;
+  width: 100vw;
+  background-color: vars.$green-main;
+  z-index: 2;
+  padding: 1rem 0 1rem 0;
+  color: white;
+  font-family: vars.$police-Main;
+  font-weight: 700;
+}
