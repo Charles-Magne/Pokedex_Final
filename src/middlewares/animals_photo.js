@@ -13,7 +13,7 @@ const animal_photoMiddleware = (store) => (next) => (action) => {
       //le 'token'
       const API_KEY = "30678927-12f3c36eb238a20343ea597b1";
       const route = "https://pixabay.com/api";
-      const recherche = "Squirrel"; //store.getState().animal.searchFunction;
+      const recherche = 'dog, wild' // store.getState().animal.searchFunction;
       //la route api
       axios
         .get("https://pixabay.com/api/?key="+ API_KEY+"&q="+recherche+"&category=animals,nature&image_type=photo&per_page=3&orientation=horizontal&editors_choice=true")

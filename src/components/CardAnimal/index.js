@@ -22,32 +22,27 @@ import { fetchAllImgCard } from "../../action/animalPhoto";
 function CardAnimal({ name, taxonomy, locations, characteristics }) {
   const dispatch = useDispatch;
 
-  useEffect(() => {
-    // Ici on doit verifier si les datas sont remplis -- si elle sont vides ont les remplir avec inconnu
-    //const habitat = document.querySelector('.info-habitat');
-    console.log("coucou");
-    
-    /* if (habitat !== undefined) {
-      habitat.textContent = "Inconnu";
-    } else {
-      console.log('on affiche');
-    }*/
+ 
 
-    const locations = document.querySelector('.info-locations');
-    if (locations !== undefined) {
-      locations.textContent = "Inconnu";
-    } else {
-      console.log('on affiche');
-    }
-  },);
-
-  /*useEffect(() => {
-    // On veut recup un objet directement depuis l'API
-    // Pour ça, on va dispatcher une action (émettre l'intention de charger les animaux)
-    dispatch(fetchOneAnimal(name));
-  }, []);*/
+  // Pour ça, on va dispatcher une action (émettre l'intention de charger les animaux)
+  dispatch(fetchAllImgCard(name));
 
   const listPicture = useSelector((state) => state.animal.listPhoto);
+
+
+  //RAPPEL => Condition ? exprSiVrai : exprSiFaux 
+  // Ici Une ternaire qui gere l'affichage de l'habiat si nul => on affiche inconnu
+  const toggleHabitat = characteristics.habitat !== undefined ? characteristics.habitat : "Inconnu";
+ 
+  // Ici Une ternaire qui gere l'affichage de la premiere location si nul => on affiche inconnu
+  const toggleLocation = locations[0]  == undefined ? "Inconnu" : locations[0] ;
+
+  // Ici Une ternaire qui gere l'affichage de la deuxieme location si nul => on affiche rien
+  const toggleLocation1 = locations[1]  == undefined ? "" : locations[1] ;
+  
+
+ 
+    
 
   const listPhotoSommaire = { ...listPicture };
 
@@ -73,9 +68,9 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
           <div className="selection-down__right">
             <div className="contenaire-info">
               <img className="icone_world icone" src={biome} alt="word_icone" />
-              <span className="info-name info-habitat">
-                {" "}
-                {characteristics.habitat}
+              <span className="info-name info-habitat"  > {toggleHabitat}
+                
+                
               </span>
             </div>
             <div className="contenaire-info">
@@ -85,7 +80,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
                 alt="world icone"
               />
               <span className="info-name info-locations">
-                {locations[(0, 1)]}
+                 {toggleLocation} {''} {toggleLocation1}
               </span>
             </div>
             <div className="contenaire-info">
