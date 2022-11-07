@@ -445,11 +445,14 @@ const ficheAnimal = document.querySelector(".contener-main");
 
 const img = document.querySelector(".picture-animal");
 const imgCat = document.querySelector(".picture-boss");
-photoPicture.largeImageURL = undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
-photoPicture.largeImageURL != undefined ? img.style.display = "block" : img.style.display = "none";
+//Si l'image url est undefined on place le chat en block sinon on le passe en none
+photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
+//Si l'image url est undefined on place l'animal en none sinon on le passe en block
+ photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
 
-photoPicture.largeImageURL = undefined ? console.log('on affiche le chat') : console.log('on cache l\'animal');
-photoPicture.largeImageURL != undefined ? console.log('on cache le chat') : console.log('on affiche l\'animal');
+photoPicture.largeImageURL = undefined ? console.log('on affiche le chat') : console.log('on cache le chat');
+photoPicture.largeImageURL = undefined ? console.log('on cache l\'animal') : console.log('on affiche l\'animal');
+console.log('la photo =>', photoPicture.largeImageURL);
 
 })
 
