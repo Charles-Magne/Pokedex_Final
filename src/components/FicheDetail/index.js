@@ -6,6 +6,8 @@ import { useEffect } from "react";
 //Les assets
 import "./style.scss";
 import face from "../../assets/pictures/face-a-face.jpg";
+import loading from "../../assets/pictures/loading_green.png";
+import theBoss from "../../assets/pictures/boss.jpg";
 
 //Les composants
 import Header from "../Header";
@@ -19,11 +21,13 @@ function FicheDetail() {
 
   //le useParmas permet d'extraire le slug de l'adresse web // la const doit porter le meme nome que la data que l'on souhaite extraire de l'url
   const { name } = useParams();
-  console.log("Le Slug=>", name);
 
   //On initie le dispatch
   const dispatch = useDispatch();
   //console.log('les proptype de la fiche =>', FicheDetail.prototype[name]);
+
+  // Ici Une ternaire qui gere l'affichage de l'habiat si nul => on affiche inconnu
+  //const toggleHabitat = characteristics.habitat !== undefined ? characteristics.habitat : "Inconnu";
 
 
   // ToDo Il faut cacher toutes les informations et n'afficher que celle remplis
@@ -32,8 +36,6 @@ function FicheDetail() {
   // Comment identifier les datas que l'on recoit par rapport a toutes les datas de la page
   // A la reception des datas Si la data est differante de null alors on affiche la div info generique 
 
-
-  
 
   //!|| Attention, il vaut mieux faire un appel API lors du clic sur la card comme ca pas de contradition entre l'url et la vitesse de chargement du dom
   //! V  Plutot utiliser les props et les stocker dans le stat
@@ -57,24 +59,25 @@ function FicheDetail() {
 */
  // -------------------
 
- 
+
 
   const listPicture = useSelector((state) => state.animal.PictureUnique);
-  console.log('ce que l\'on veut afficher (photo) =>',listPicture); 
 
   const listPhotoSommaire =  { ...listPicture};
 
   const listPhotoSommaire1 = { ...listPhotoSommaire.hits }[0];
 
   const photoPicture = { ...listPhotoSommaire1 };
-  
-  console.log('ce que l\'on veut afficher (photo) 2 =>',photoPicture.id);
+
+ 
 
   //--------------------
 
   //On indique ou sont les information et ce qui nous interesse
   const animalSlug = useSelector((state) => state.animal.SlugFiche);
   const data = { ...animalSlug };
+  console.log("l url =>", name);
+  console.log ("le slugfiche ", data.name);
   const Location0 = { ...data.locations }[0];
   const Location1 = { ...data.locations }[1];
   const Location2 = { ...data.locations }[2];
@@ -430,24 +433,50 @@ if (characteristics0.training !== undefined && characteristics0.temperament !== 
   educationDiv.style.display = "none";
 }
 
+//!on est en train de checker la ternaire
+const loadingImg = document.querySelector(".loadingImg");
+const ficheAnimal = document.querySelector(".contener-main");
+
+ data.name !== name ?  ficheAnimal.style.display = "none"  : loadingImg.style.display = "block"  ;
+ data.name == name ?  ficheAnimal.style.display = "block"  : loadingImg.style.display = "none"  ;
+
+
+{/* ******************** On verifie si il y a une img ****************** */}
+
+const img = document.querySelector(".picture-animal");
+const imgCat = document.querySelector(".picture-boss");
+photoPicture.largeImageURL = undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
+photoPicture.largeImageURL != undefined ? img.style.display = "block" : img.style.display = "none";
+
+photoPicture.largeImageURL = undefined ? console.log('on affiche le chat') : console.log('on cache l\'animal');
+photoPicture.largeImageURL != undefined ? console.log('on cache le chat') : console.log('on affiche l\'animal');
 
 })
 
  // ---------------------le composant--------------------------------
 
+
+
   return (
     <div>
+      <img className="loadingImg" src={ loading }/>
       <div className="contener-main">
-        
         <div className="contener-fiche">
           <div className="contener-picture">
           <h1 className="Titre-name"> {name}</h1>
             {/* l'image du l'animal*/}
+            {/*photoPicture.previewURL */}
             <img
               className="picture-animal"
               src={ photoPicture.largeImageURL }
               alt="animal picture"
             />
+            <img
+              className="picture-boss"
+              src={ theBoss }
+              alt="animal-cat"
+            />
+            
             {/****description******* */}
             <p className="description-animal"> {characteristics0.slogan}</p>
           </div>

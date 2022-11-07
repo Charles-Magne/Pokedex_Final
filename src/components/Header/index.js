@@ -37,7 +37,6 @@ function Header() {
     clicClassi.classList.add('nav-bar_cat-click');
   }
 
-  console.log('Je suis le header');
 
   
 

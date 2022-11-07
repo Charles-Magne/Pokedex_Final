@@ -1,6 +1,6 @@
 
-// Des que l'on a recu les infos sur les animaux on envoie une requete pour trouver les photos
 
+// Des que l'on a recu les infos sur les animaux on envoie une requete pour trouver les photos
 
 export const FETCH_ANIMAL_PHOTO = "FETCH_ANIMAL_PHOTO";
 
@@ -11,6 +11,7 @@ export function fetchAnimalPhoto() {
   };
 }
 
+// On place toutes les photos dans le state ???
 export const SAVE_ANIMAL_PHOTO = "SAVE_ANIMAL_PHOTO";
 
 export function saveAnimalPhoto(value) {
@@ -20,6 +21,8 @@ export function saveAnimalPhoto(value) {
   };
 }
 
+
+// On place une seule photo dans le state
 export const SAVE_ONE_PHOTO = "SAVE_ONE_PHOTO";
 
 export function saveOnePhoto (value) {

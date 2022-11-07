@@ -16,16 +16,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 //Les actions
 import { fetchOneAnimal } from "../../action/animal";
-import { fetchAllImgCard } from "../../action/animalPhoto";
+import { fetchAllImgCard } from "../../action/animalPhoto.js";
 
 //---------------------La fonction--------------------------------
 function CardAnimal({ name, taxonomy, locations, characteristics }) {
+
   const dispatch = useDispatch;
 
- 
+  useDispatch(fetchAllImgCard());
+  console.log('j envoie l\'action');
 
-  // Pour ça, on va dispatcher une action (émettre l'intention de charger les animaux)
-  dispatch(fetchAllImgCard(name));
+ //const nameAnimalForPhoto = useSelector((state) => state.animal.list);
+
+
+ 
 
   const listPicture = useSelector((state) => state.animal.listPhoto);
 

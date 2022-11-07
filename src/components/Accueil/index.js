@@ -34,6 +34,9 @@ function Accueil() {
   // Ici on import le sous-state list (l'api) pour l'utiliser dans les cards
   const list = useSelector((state) => state.animal.list);
 
+  const onTest = () => {
+    console.log('coucou');
+  };
 
   //Envoie de l'input au state
   const changeValue = (event) => {

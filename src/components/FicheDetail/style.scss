@@ -1,8 +1,15 @@
 @use "../../assets/styles/vars.scss";
 
 
+.loadingImg{
+  display: none;
+  margin: auto;
+  height: 2rem;
+}
+
 .contener-main{
   margin: 1rem 1.5rem 0 1.5rem;
+  display: block;
   
 }
 
@@ -28,6 +35,19 @@ display: flex;
 }
 
 .picture-animal{
+  display: none;
+  position: sticky;
+  top: 5rem;
+  width: 35rem;
+  height: 35rem;
+margin: 0 auto 0 auto;
+border-radius: 0.5rem;
+overflow-y:visible;
+overflow-x: visible;
+}
+
+.picture-boss{
+  display: none;
   position: sticky;
   top: 5rem;
   width: 35rem;
