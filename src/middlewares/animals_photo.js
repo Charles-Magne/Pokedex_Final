@@ -16,7 +16,7 @@ const animal_photoMiddleware = (store) => (next) => (action) => {
       const route = "https://pixabay.com/api";
 
 
-      const recherche = 'dog, wild' // store.getState().animal.searchFunction;
+      const recherche = 'mandrill' // store.getState().animal.searchFunction;
       //la route api
       axios
         .get("https://pixabay.com/api/?key="+ API_KEY+"&q="+recherche+"&category=animals,nature&image_type=photo&per_page=3&orientation=horizontal&editors_choice=true")

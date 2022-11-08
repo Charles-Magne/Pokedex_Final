@@ -24,17 +24,9 @@ function FicheDetail() {
 
   //On initie le dispatch
   const dispatch = useDispatch();
-  //console.log('les proptype de la fiche =>', FicheDetail.prototype[name]);
 
   // Ici Une ternaire qui gere l'affichage de l'habiat si nul => on affiche inconnu
   //const toggleHabitat = characteristics.habitat !== undefined ? characteristics.habitat : "Inconnu";
-
-
-  // ToDo Il faut cacher toutes les informations et n'afficher que celle remplis
-  //Donc a l'initialisation du dom => tous les titres sont en display none 
-  //lorsque l'on recoit les datas on passe en display flex/block ce qui est contenu dans la requete
-  // Comment identifier les datas que l'on recoit par rapport a toutes les datas de la page
-  // A la reception des datas Si la data est differante de null alors on affiche la div info generique 
 
 
   //!|| Attention, il vaut mieux faire un appel API lors du clic sur la card comme ca pas de contradition entre l'url et la vitesse de chargement du dom
@@ -45,18 +37,6 @@ function FicheDetail() {
     dispatch(fetchOneAnimal(name));
   }, []);
 
-  /*// On vient choper la photo de l'animal dans le reducer (stat)
-  const pictureStat = useSelector((state) => state.animal.PictureUnique);
-  console.log('la photo =>', pictureStat);
-
-  const pictureData = { ...pictureStat };
-  console.log('la photo plus precis =>', pictureData);
-
-  const Picture = { ...pictureData.hits}[0];
-  console.log('la photo unique =>', Picture );
-
-  const pictureLarge = { Picture.largeImageURL };
-*/
  // -------------------
 
 
@@ -94,6 +74,8 @@ function FicheDetail() {
   const taxonomy0 = { ...data.taxonomy };
     //On vient cibler l'objet taxonomy On veut passer en block les infos contenu dedans 
   const characteristics0 = { ...data.characteristics };
+
+  console.log('photoPicture =>',photoPicture);
 
 
   // console.log('location une : ',locations[0][0]);
@@ -433,12 +415,14 @@ if (characteristics0.training !== undefined && characteristics0.temperament !== 
   educationDiv.style.display = "none";
 }
 
+{/* ******************** On gere le loading ****************** */}
 //!on est en train de checker la ternaire
 const loadingImg = document.querySelector(".loadingImg");
 const ficheAnimal = document.querySelector(".contener-main");
-
- data.name !== name ?  ficheAnimal.style.display = "none"  : loadingImg.style.display = "block"  ;
- data.name == name ?  ficheAnimal.style.display = "block"  : loadingImg.style.display = "none"  ;
+//Si le nom de l'url est differant de la fiche on affiche le loading sinon on masque le loading
+ data.name !== name ?  loadingImg.style.display = "block"  : loadingImg.style.display = "none"  ;
+ //Si le nom de l'url est egale a la fiche on affiche la fiche sinon on masque la fiche
+ data.name == name ?  ficheAnimal.style.display = "block"  : ficheAnimal.style.display = "none"  ;
 
 
 {/* ******************** On verifie si il y a une img ****************** */}
@@ -449,10 +433,6 @@ const imgCat = document.querySelector(".picture-boss");
 photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
 //Si l'image url est undefined on place l'animal en none sinon on le passe en block
  photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
-
-photoPicture.largeImageURL = undefined ? console.log('on affiche le chat') : console.log('on cache le chat');
-photoPicture.largeImageURL = undefined ? console.log('on cache l\'animal') : console.log('on affiche l\'animal');
-console.log('la photo =>', photoPicture.largeImageURL);
 
 })
 
@@ -479,7 +459,7 @@ console.log('la photo =>', photoPicture.largeImageURL);
               src={ theBoss }
               alt="animal-cat"
             />
-            
+            <p className="makerPixabay" >{photoPicture.user} | Pixabay</p>
             {/****description******* */}
             <p className="description-animal"> {characteristics0.slogan}</p>
           </div>

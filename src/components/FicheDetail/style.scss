@@ -3,9 +3,87 @@
 
 .loadingImg{
   display: none;
-  margin: auto;
-  height: 2rem;
+  margin: 12rem auto 25rem auto;
+  height: 8rem;
+  animation: rotation 2s infinite linear;
+  //animation: loadRotate 1s infinite;
+  -webkit-animation: loadRotate 1500ms infinite linear;
+  -moz-animation: loadRotate 1500ms infinite linear;
+  -ms-animation: loadRotate 1500ms infinite linear;
+  -o-animation: loadRotate 1500ms infinite linear;
+  animation: loadRotate 1500ms infinite linear;
 }
+
+@-webkit-keyframes loadRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes loadRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes loadRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes loadRotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
 
 .contener-main{
   margin: 1rem 1.5rem 0 1.5rem;
@@ -19,7 +97,7 @@
   text-align: center;
   font-weight: 700;
   font-size: 1.8rem;
-  margin: 2.2rem 0 3rem 0;
+  margin: 1.5rem 0 1.5rem 0;
   font-family: vars.$police-Main;
   color: vars.$green-main;
 }
@@ -32,6 +110,9 @@ display: flex;
   display: flex;
   flex-direction: column;
   width: 50%;
+  position: sticky;
+  top: 15rem;
+
 }
 
 .picture-animal{
@@ -58,9 +139,19 @@ overflow-y:visible;
 overflow-x: visible;
 }
 
+.makerPixabay{
+  color: white;
+  position: sticky;
+  top: 38rem;
+  margin: 2rem 0 0 13rem;
+  z-index: 2;
+ font-family: vars.$police-Main;
+ font-weight: 700;
+}
+
 .description-animal{
   position: sticky;
-  top: 41rem;
+  top: 42rem;
   margin: 1rem 0 0 0 ;
   align-self: center;
   font-size: 1.2rem;

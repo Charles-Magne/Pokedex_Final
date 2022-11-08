@@ -3,7 +3,6 @@ import "./style.scss";
 import FicheDetail from "../FicheDetail";
 
 //les assets
-import face from "../../assets/pictures/face-a-face.jpg";
 import globe from "../../assets/icone/monde.png";
 import biome from "../../assets/icone/savane.png";
 import plate from "../../assets/icone/en-mangeant.png";
@@ -23,12 +22,10 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
   const dispatch = useDispatch;
 
-  useDispatch(fetchAllImgCard());
+  dispatch(fetchAllImgCard());
   console.log('j envoie l\'action');
 
  //const nameAnimalForPhoto = useSelector((state) => state.animal.list);
-
-
  
 
   const listPicture = useSelector((state) => state.animal.listPhoto);
@@ -44,9 +41,6 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
   // Ici Une ternaire qui gere l'affichage de la deuxieme location si nul => on affiche rien
   const toggleLocation1 = locations[1]  == undefined ? "" : locations[1] ;
   
-
- 
-    
 
   const listPhotoSommaire = { ...listPicture };
 

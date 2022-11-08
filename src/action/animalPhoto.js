@@ -35,10 +35,9 @@ export function saveOnePhoto (value) {
 
 export const FETCH_ALL_IMG_CARD = "FETCH_ALL_IMG_CARD";
 
-export function fetchAllImgCard (name) {
+export function fetchAllImgCard () {
   return {
     type: FETCH_ALL_IMG_CARD,
-    name: name,
   };
 }
 
