@@ -10,7 +10,7 @@ import { FETCH_ALL_ANIMAL, saveAnimal, VALIDE_VALUE, FETCH_ONE_ANIMAL, saveUrlAn
 const animalMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_ALL_ANIMAL: {
-      const name = 'cat';
+      const name = 'kangaroo';
       console.log('ce que j\'envoie =>', name);
       //la route api
       axios.get('https://api.api-ninjas.com/v1/animals?name=' + name,
@@ -83,9 +83,9 @@ const animalMiddleware = (store) => (next) => (action) => {
       )
       .then(
         (Response) => {
-          console.log('Response API pour URL ->', Response.data); // recoit un array
-          console.log('Response API pour URL TEST ->', {...Response.data}); // recoit un object
-          console.log('Response API pour URL TEST 2 ->', {...Response.data[0]}); // recoit un ???
+          //console.log('Response API pour URL ->', Response.data); // recoit un array
+          //console.log('Response API pour URL TEST ->', {...Response.data}); // recoit un object
+          //console.log('Response API pour URL TEST 2 ->', {...Response.data[0]}); // recoit un ???
           store.dispatch(saveUrlAnimal({...Response.data[0]}));
         },
       )

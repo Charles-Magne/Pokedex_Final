@@ -31,29 +31,28 @@ function Accueil() {
   const dispatch = useDispatch();
   const { nameUrl } = useParams();
 
-  // Ici on import le sous-state list (l'api) pour l'utiliser dans les cards
-  const list = useSelector((state) => state.animal.list);
 
-  const onTest = () => {
-    console.log('coucou');
-  };
+  //Ici on n'indique qu'on se trouve sur l'acceuil
+  dispatch(ClickHeaderEncyclo("Encyclo"));
+
+
+  // Ici on import le state dans la barre de recherche
+  const searchValue = useSelector((state) => state.searchFunction);
+
+    // Ici on import le sous-state list (l'api) pour l'utiliser dans les cards
+    const list = useSelector((state) => state.animal.list);
 
   //Envoie de l'input au state
   const changeValue = (event) => {
     dispatch(saveSearch(event.currentTarget.value, "searchValue"));
   };
 
-  //submit du search pour nouvelle requete api
-  const valideValue = (event) => {
-    event.preventDefault();
-    dispatch(sendSearch(event));
-  };
 
-  // Ici on import le state dans la barre de recherche
-  const searchValue = useSelector((state) => state.searchFunction);
-
-  //Ici on n'indique qu'on se trouve sur l'acceuil
-  dispatch(ClickHeaderEncyclo("Encyclo"));
+//submit du search pour nouvelle requete api
+const valideValue = (event) => {
+  event.preventDefault();
+  dispatch(sendSearch(event));
+};
 
 
   // ---------------------le composant--------------------------------
@@ -92,9 +91,9 @@ function Accueil() {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option selected>Biome---(tous)</option>
-                <option>Aride</option>
-                <option>Forêt</option>
+                <option defaultValue>Biome---(tous)</option>
+                <option value >Aride</option>
+                <option value >Forêt</option>
               </select>
 
               <select
@@ -102,10 +101,10 @@ function Accueil() {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option>Pays---(tous)</option>
-                <option>France</option>
-                <option>Angleterre</option>
-                <option>Etat-unis</option>
+                <option defaultValue >Pays---(tous)</option>
+                <option value>France</option>
+                <option value>Angleterre</option>
+                <option value>Etat-unis</option>
               </select>
 
               <select
@@ -113,10 +112,10 @@ function Accueil() {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option>Regime alimentaire---(tous)</option>
-                <option>Ommnivore</option>
-                <option>Carnivore</option>
-                <option>Herbivore</option>
+                <option defaultValue >Regime alimentaire---(tous)</option>
+                <option value>Ommnivore</option>
+                <option value>Carnivore</option>
+                <option value>Herbivore</option>
               </select>
 
               <button className="ramdowm_button">

@@ -33,11 +33,23 @@ export function saveOnePhoto (value) {
 }
 
 
-export const FETCH_ALL_IMG_CARD = "FETCH_ALL_IMG_CARD";
+//permet de fetch une img pour une card
+export const FETCH_CARD_IMG = "FETCH_CARD_IMG";
 
-export function fetchAllImgCard () {
+export function fetchCardImg (value) {
   return {
-    type: FETCH_ALL_IMG_CARD,
+    type: FETCH_CARD_IMG,
+    value,
+  };
+}
+
+//permet de save une img pour une card dans le state
+export const SAVE_CARD_IMG = "SAVE_CARD_IMG";
+
+export function saveCardImg (value) {
+  return {
+    type: SAVE_CARD_IMG,
+    value,
   };
 }
 
