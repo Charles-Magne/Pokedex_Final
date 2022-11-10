@@ -11,10 +11,12 @@ import ChaineAlimentaireAccueuil from "../ChaineAlimentaireAccueil";
 import Classification from "../Classification";
 import Footer from "../Footer";
 import Team from "../Team";
+import Erreur404 from "../404";
 
 //les actions
 import { fetchAllAnimal } from "../../action/animal.js";
 import { fetchAnimalPhoto } from "../../action/animalPhoto.js";
+
 
 
 // == Composant
@@ -26,6 +28,7 @@ function App() {
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchAllAnimal());
+    
      // V Provisoire lorsque on charge les infos on envoie une requete a paxabay pour les photos
     dispatch(fetchAnimalPhoto());
   }, []
@@ -41,6 +44,7 @@ function App() {
         <Route path="/Chaine_Alimentaire" element={<ChaineAlimentaireAccueuil/>} />
         <Route path="/Classification_especes" element={<Classification/>}/>
         <Route path="/Team" element={<Team/>}/>
+        <Route path="/404" element={<Erreur404/>} />
       </Routes>
       <Footer />
     </div>

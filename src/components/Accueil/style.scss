@@ -29,6 +29,7 @@
 .search-and-option-container {
   padding: 0 0 0 0;
   border: 1px solid vars.$green-main;
+  margin: 0 auto;
   border-radius: 0.5rem;
 }
 
@@ -54,6 +55,7 @@
   background: none;
   font-family: vars.$police-Main;
   font-weight: 700;
+  width: 11rem;
 }
 
 .search-button {
@@ -71,7 +73,6 @@
   z-index: 1;
   color: white;
   cursor: pointer;
-
 }
 
 .search-icone {
@@ -80,7 +81,6 @@
   height: 1.2rem;
   color: white;
 }
-
 
 .search_filter {
   display: flex;
@@ -124,8 +124,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 2rem 0 0 0;
+  justify-content: space-between;
+  margin: 0 0 0 0;
 }
 
 .ad-droit {
@@ -135,4 +135,61 @@
   width: 160px;
   height: 600px;
   margin: 2rem 0 0 0;
+}
+
+//le wrap des card
+@media screen and (max-width:1620px) {
+  .Card_wraper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 0 0 0;
+  }
+ }
+
+//la pub de droite
+@media screen and (max-width:1600px) {
+  .ad-droit {
+    display: none;
+  }
+ }
+
+
+//les filtres
+@media screen and (max-width:1340px) {
+  .search_filter {
+    margin: 1rem 1rem 0 1rem;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width:870px) {
+  .search_filter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem 8rem 0 8rem;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width:740px) {
+
+.page-container {
+  margin: 2rem 2rem;
+  width: 70%;
+}
+
+.search-and-option-container {
+  width: 25rem;
+}
+
+}
+
+@media screen and (max-width:720px) {
+
+  .search-and-option-container {
+    width: 20rem;
+  }
 }

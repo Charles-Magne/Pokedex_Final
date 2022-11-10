@@ -54,10 +54,6 @@
   background-color: vars.$green-black ;
 }
 
-.nav-bar_cat:active{
-  color: red;
-}
-
 
 .nav-bar_cat-click {
   margin: 0.1rem 2rem 0 0;
@@ -101,3 +97,32 @@
   font-style: italic;
   font-size: 0.8rem;
 }
+
+@media screen and (max-width:1440px) {
+
+.titleComment{
+  width: 15rem;
+  text-align: center;
+}
+
+}
+
+@media screen and (max-width:1200px) {
+
+  .titleComment{
+    display: none;
+  }
+  
+  }
+
+  @media screen and (max-width:850px) {
+    .nav-bar_cat {
+      margin: 0 2rem 0 0;
+      padding: 0 0.1rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  

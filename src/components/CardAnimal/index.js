@@ -57,24 +57,23 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
   // ---------------------le composant--------------------------------
   return (
     <article className="card-animal">
-      <Link to={`/Animal/${name}`}>
-        <div className="selection-up">
-          <span className="animal-name">{name}</span>
-          <span className="animal-sort">{taxonomy.order}</span>
-          <span className="animal-underSort">{taxonomy.family}</span>
-        </div>
-        <div className="selection-down">
+      <Link className="contenerSelection" to={`/Animal/${name}`}>
+        <div className="selection-left">
           <img
             className="img1"
             src={listPhotoSommaire1.previewURL}
             alt="animal picture"
           />
-          <div className="selection-down__right">
+          <div className="selection-right">
+          <span className="animal-name">{name}</span>
+          <div className="animal-class" >
+          <span className="animal-sort">{taxonomy.order}</span>
+          <span className="animal-underSort">{taxonomy.family}</span>
+        </div>
+        <div className="selection-down__right">
             <div className="contenaire-info">
               <img className="icone_world icone" src={biome} alt="word_icone" />
               <span className="info-name info-habitat"  > {toggleHabitat}
-                
-                
               </span>
             </div>
             <div className="contenaire-info">
@@ -91,6 +90,8 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
               <img className="icone_world icone" src={plate} alt="word icone" />
               <span className="info-name">{characteristics.diet}</span>
             </div>
+        </div>
+          
           </div>
         </div>
       </Link>

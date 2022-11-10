@@ -14,7 +14,7 @@ export const initialState = {
   slugUrl: null, // le slug de l'url
   SlugFiche: null, // les infos que l'on retrouve sur la fiche d'un animal
   listPhoto: null, // la list des photos pour l'acceuil
-  PictureUnique: null,
+  PictureUnique: null, // la photo presente sur la fiche
   PictureCard: [], // Stock les imgs des cards
 };
 

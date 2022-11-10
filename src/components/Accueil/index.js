@@ -91,7 +91,7 @@ const valideValue = (event) => {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option defaultValue>Biome---(tous)</option>
+                <option defaultValue>Biome</option>
                 <option value >Aride</option>
                 <option value >Forêt</option>
               </select>
@@ -101,7 +101,7 @@ const valideValue = (event) => {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option defaultValue >Pays---(tous)</option>
+                <option defaultValue >Pays</option>
                 <option value>France</option>
                 <option value>Angleterre</option>
                 <option value>Etat-unis</option>
@@ -112,7 +112,7 @@ const valideValue = (event) => {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option defaultValue >Regime alimentaire---(tous)</option>
+                <option defaultValue >Regime alimentaire</option>
                 <option value>Ommnivore</option>
                 <option value>Carnivore</option>
                 <option value>Herbivore</option>
