@@ -426,7 +426,6 @@ const ficheAnimal = document.querySelector(".contener-main");
 
 
 {/* ******************** On verifie si il y a une img ****************** */}
-
 const img = document.querySelector(".picture-animal");
 const imgCat = document.querySelector(".picture-boss");
 //Si l'image url est undefined on place le chat en block sinon on le passe en none

@@ -16,6 +16,7 @@ export const initialState = {
   listPhoto: null, // la list des photos pour l'acceuil
   PictureUnique: null, // la photo presente sur la fiche
   PictureCard: [], // Stock les imgs des cards
+  PictureName: "", // le nom de la data 
 };
 
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
@@ -61,6 +62,7 @@ function animalReducer(state = initialState, action = {}) {
       return {
         ...state,
           PictureCard: action.value,
+          PictureName: action.recherche,
       };
 
     //rien ne change en dessous

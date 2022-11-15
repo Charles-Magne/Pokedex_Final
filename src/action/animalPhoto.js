@@ -46,10 +46,11 @@ export function fetchCardImg (value) {
 //permet de save une img pour une card dans le state
 export const SAVE_CARD_IMG = "SAVE_CARD_IMG";
 
-export function saveCardImg (value) {
+export function saveCardImg (value, recherche) {
   return {
     type: SAVE_CARD_IMG,
     value,
+    recherche,
   };
 }
 

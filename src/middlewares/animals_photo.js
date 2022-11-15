@@ -65,14 +65,13 @@ case FETCH_CARD_IMG: {
   const route = "https://pixabay.com/api";
   const recherche = action.value;
   console.log('Middelwarephoto =>', recherche);
-  console.log('ca marche');
   //la route api
   axios
     .get("https://pixabay.com/api/?key="+ API_KEY+"&q="+recherche+"&category=animals,nature&image_type=photo&per_page=3&orientation=horizontal&editors_choice=true")
     .then((Response) => {
-      console.log("Requet pour photo unique ->", Response.data);
-      console.log("Recherche name ->", action.value);
-      store.dispatch(saveCardImg(Response.data));
+      console.log("la reponse data->", Response.data);
+      console.log("Le name de la card ->", recherche);
+      store.dispatch(saveCardImg(Response.data, recherche));
     })
     .catch((error) => {
       console.log("les photos =>", error);
