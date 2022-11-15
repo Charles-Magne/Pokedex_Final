@@ -7,6 +7,7 @@ import globe from "../../assets/icone/monde.png";
 import biome from "../../assets/icone/savane.png";
 import plate from "../../assets/icone/en-mangeant.png";
 import boss from "../../assets/pictures/boss.jpg";
+import bird from "../../assets/pictures/face-a-face.jpg";
 
 // les dependances
 import PropTypesLib from "prop-types";
@@ -28,45 +29,69 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
   const listImg = { ...animalImg };
 
   const listImg1 = { ...listImg.hits }[0];
-  console.log("la data qu'on veut utiliser", listImg1);
+ 
+
 
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchCardImg(name));
   }, []);
 
+
+  const imgTrue = document.querySelector(".img1");
+  const imgBoss = document.querySelector(".imgChat");
+  
+ //Si le nom de la card est egal au nom du reducer ...
+  if (animalName == name) {
+    console.log('-----------------');
+    console.log('check de la photo card',listImg1);
+    console.log("0-la data qu'on veut utiliser", listImg1);
     console.log("1-le animalname =>", animalName);
-    const imgTrue = document.querySelector(".img1");
-    const imgBoss = document.querySelector(".imgChat");
+    console.log("2-celui ci, on le selectionne (card) =>", name);
 
-    //Si le nom de la card est egal au nom du reducer ...
-    if (animalName == name) {
-      console.log("2-celui ci, on le selectionne (card) =>", name);
+    // ... alors On verifie que l'img de l'app n'est pas deja presente ...
+    if ( imgTrue.style.display == "block" ) {
+      console.log("3-le display de", name, "est deja en block");
+      
+      // ... si il n'y a pas d'img de l'app, alors on regerde dans le state ...
+    } if ( imgTrue.style.display !== "block" ) 
+      console.log("4-le display de", name, "est en none");
 
-      // ... alors On verifie que l'img de l'app n'est pas deja presente ...
-      if (imgTrue.style.display != "block") {
-        console.log("3-le display de", name, "est en block");
+      // .. Si le state est rempli, On passe l'img app en block ...
+      if (listImg1 == undefined) {
+        console.log("5- *******On affiche le potit chat", name);
+        imgBoss.style.display = "block";
 
-        // ... si il n'y a pas d'img de l'app, alors on regerde dans le state ...
-      } else if (imgTrue.style.display = "none") {
-        console.log("4-le display de", name, "est en none");
-
-        // .. Si le state est rempli, On passe l'img app en block ...
-        if (listImg1 !== undefined) {
-          console.log("5- *******On passe en block", name);
-          imgTrue.style.display = "block";
-          imgBoss.style.display = "none";
-
-          // ... Si le state est vide, on passe l'img de l'app en none.
-        } else if (
-          listImg1 == undefined /*&& imgTrue.style.display == "none"*/
-        ) {
-          imgBoss.style.display = "block";
-          imgTrue.style.display = "none";
-          console.log(" 6- ------On affiche le potit chat", name);
-        }
+        // ... Si le state est vide, on passe l'img de l'app en none.
+      } else {
+        imgTrue.style.display = "block";
+        console.log(" 6- ------On passe en none", name);
       }
+
+  }
+
+
+
+
+/*
+  //Si le nom de la card est egal au nom du reducer ...
+  if (animalName == name) {
+    console.log("2-celui ci, on le selectionne (card) =>", name);
+
+    // .. Si le state est rempli, On passe l'img app en block ...
+    if (listImg1 !== undefined) {
+      console.log("5- *******On passe en block", name);
+      imgTrue.style.display = "block";
+      imgBoss.style.display = "none";
+
+      // ... Si le state est vide, on passe l'img de l'app en none.
+    } else if (listImg1 == undefined) {
+      imgBoss.style.display = "block";
+      imgTrue.style.display = "none";
+      console.log(" 6- ------On affiche le potit chat", name);
     }
+  }
+  */
 
   // V Provisoire
   const listPicture = useSelector((state) => state.animal.listPhoto);
@@ -93,11 +118,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
     <article className="card-animal">
       <Link className="contenerSelection" to={`/Animal/${name}`}>
         <div className="selection-left">
-          <img
-            className="img1"
-            src={listPhotoSommaire1.largeImageURL}
-            alt="animal picture"
-          />
+          <img className="img1" src={bird} alt="animal picture" />
           <img className="imgChat" src={boss} alt="cat" />
           <div className="selection-right">
             <span className="animal-name">{name}</span>
