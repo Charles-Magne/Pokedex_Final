@@ -40,6 +40,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
   const imgTrue = document.querySelector(".img1");
   const imgBoss = document.querySelector(".imgChat");
+  const repere = document.querySelector('.selection-left');
   
  //Si le nom de la card est egal au nom du reducer ...
   if (animalName == name) {
@@ -50,27 +51,34 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
     console.log("2-celui ci, on le selectionne (card) =>", name);
 
     // ... alors On verifie que l'img de l'app n'est pas deja presente ...
-    if ( imgTrue.style.display == "block" ) {
+    /*if ( imgTrue.style.display == "block" ) {
       console.log("3-le display de", name, "est deja en block");
       
       // ... si il n'y a pas d'img de l'app, alors on regerde dans le state ...
-    } if ( imgTrue.style.display !== "block" ) 
+    } if ( imgTrue.style.display == "block" )
       console.log("4-le display de", name, "est en none");
 
       // .. Si le state est rempli, On passe l'img app en block ...
-      if (listImg1 == undefined) {
+     */ if (listImg1 == undefined) {
         console.log("5- *******On affiche le potit chat", name);
-        imgBoss.style.display = "block";
+        //imgBoss.style.display = "block";
+        const creatCat = document.createElement("img");
+        document.body.insertBeforeBefore(creatCat, repere );
+        // On creer une img avec le state
 
         // ... Si le state est vide, on passe l'img de l'app en none.
       } else {
         imgTrue.style.display = "block";
         console.log(" 6- ------On passe en none", name);
+        //On crere une img avec effie
       }
 
   }
 
-
+//Si l'image url est undefined on place le chat en block sinon on le passe en none
+//photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
+//Si l'image url est undefined on place l'animal en none sinon on le passe en block
+ //photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
 
 
 /*
