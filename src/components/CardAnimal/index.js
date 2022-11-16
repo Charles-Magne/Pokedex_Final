@@ -16,90 +16,75 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 //Les actions
-import { fetchOneAnimal } from "../../action/animal";
+
 import { fetchCardImg } from "../../action/animalPhoto.js";
+import { moreOneIndex } from "../../action/animal";
 
 //---------------------La fonction--------------------------------
 function CardAnimal({ name, taxonomy, locations, characteristics }) {
   const dispatch = useDispatch();
-
-  const animalName = useSelector((state) => state.animal.PictureName);
-  const animalImg = useSelector((state) => state.animal.PictureCard);
-
-  const listImg = { ...animalImg };
-
-  const listImg1 = { ...listImg.hits }[0];
- 
-
 
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchCardImg(name));
   }, []);
 
+  // Le nom de l'animal pour savoir quand appeler l'img
+  const animalName = useSelector((state) => state.animal.PictureName);
 
-  const imgTrue = document.querySelector(".img1");
-  const imgBoss = document.querySelector(".imgChat");
-  const repere = document.querySelector('.selection-left');
-  
- //Si le nom de la card est egal au nom du reducer ...
+  // La photo de l'animal qu'il faut appeler
+  const animalImg = useSelector((state) => state.animal.PictureCard);
+  //On destructure le state pour les imgs
+  const listImg = { ...animalImg };
+
+  const listImg1 = { ...listImg.hits }[0];
+
+  // L'index qui s'incremente pour cibler la bonne div
+  const indexImg = useSelector((state) => state.animal.CountImgIndex);
+  // On incrermente l'index d'un pour dispatcher
+  const indexIncrementation = indexImg + 1;
+
+  // V si la const de dessus ne marche pas, on utilise celle la.
+  //const listImgTrue = { ...listImg1 };
+
+  //On selectionne les imgs
+  const imgTrue = document.querySelectorAll(".img1");
+
+  //Si le nom de la card est egal au nom du reducer ...
   if (animalName == name) {
-    console.log('-----------------');
-    console.log('check de la photo card',listImg1);
+    console.log("-----------------");
+    console.log("-1-check de la photo card", imgTrue[indexImg]);
     console.log("0-la data qu'on veut utiliser", listImg1);
     console.log("1-le animalname =>", animalName);
     console.log("2-celui ci, on le selectionne (card) =>", name);
+    console.log("indexImg=>", indexImg);
+    console.log("imgTrue.value=>", imgTrue.length);
 
-    // ... alors On verifie que l'img de l'app n'est pas deja presente ...
-    /*if ( imgTrue.style.display == "block" ) {
-      console.log("3-le display de", name, "est deja en block");
-      
-      // ... si il n'y a pas d'img de l'app, alors on regerde dans le state ...
-    } if ( imgTrue.style.display == "block" )
-      console.log("4-le display de", name, "est en none");
-
-      // .. Si le state est rempli, On passe l'img app en block ...
-     */ if (listImg1 == undefined) {
-        console.log("5- *******On affiche le potit chat", name);
-        //imgBoss.style.display = "block";
-        const creatCat = document.createElement("img");
-        document.body.insertBeforeBefore(creatCat, repere );
-        // On creer une img avec le state
-
-        // ... Si le state est vide, on passe l'img de l'app en none.
-      } else {
-        imgTrue.style.display = "block";
-        console.log(" 6- ------On passe en none", name);
-        //On crere une img avec effie
-      }
-
-  }
-
-//Si l'image url est undefined on place le chat en block sinon on le passe en none
-//photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
-//Si l'image url est undefined on place l'animal en none sinon on le passe en block
- //photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
-
-
-/*
-  //Si le nom de la card est egal au nom du reducer ...
-  if (animalName == name) {
-    console.log("2-celui ci, on le selectionne (card) =>", name);
-
-    // .. Si le state est rempli, On passe l'img app en block ...
-    if (listImg1 !== undefined) {
-      console.log("5- *******On passe en block", name);
-      imgTrue.style.display = "block";
-      imgBoss.style.display = "none";
-
+    // .. Alors on verifie que le state soit rempli, On passe l'img app en block ...
+    if (listImg1 == undefined) {
+      console.log(" 6- ------On passe en none", name);
+      imgTrue.src = { boss };
       // ... Si le state est vide, on passe l'img de l'app en none.
-    } else if (listImg1 == undefined) {
-      imgBoss.style.display = "block";
-      imgTrue.style.display = "none";
-      console.log(" 6- ------On affiche le potit chat", name);
+      if (indexImg < imgTrue.length) {
+        dispatch(moreOneIndex(indexIncrementation));
+        console.log("l index a la fin", indexIncrementation);
+      }
+    } else {
+      imgTrue.src = { bird };
+      console.log("5- *******On affiche le potit chat", name);
+
+      if (indexImg < imgTrue.length) {
+        dispatch(moreOneIndex(indexIncrementation));
+        console.log("l index a la fin", indexIncrementation);
+      }
     }
   }
-  */
+
+  // V La ternaire que je ne vais pas utiliser
+  //Si l'image url est undefined on place le chat en block sinon on le passe en none
+  //photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
+  //Si l'image url est undefined on place l'animal en none sinon on le passe en block
+  //photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
 
   // V Provisoire
   const listPicture = useSelector((state) => state.animal.listPhoto);
@@ -126,8 +111,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
     <article className="card-animal">
       <Link className="contenerSelection" to={`/Animal/${name}`}>
         <div className="selection-left">
-          <img className="img1" src={bird} alt="animal picture" />
-          <img className="imgChat" src={boss} alt="cat" />
+          <img className="img1 " alt="animal picture" />
           <div className="selection-right">
             <span className="animal-name">{name}</span>
             <div className="animal-class">

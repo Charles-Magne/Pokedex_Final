@@ -62,4 +62,19 @@ export function saveUrlAnimal(name) {
   };
 }
 
+// utiliser pour recevoir les datas d'un seul animal qu'on envoie au stat
+export const MORE_ONE_INDEX = "MORE_ONE_INDEX";
+
+export function moreOneIndex(indexIncrementation) {
+  return {
+    type: MORE_ONE_INDEX,
+    value: indexIncrementation,
+  };
+}
+
+
+
+
+
+
 

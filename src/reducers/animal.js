@@ -1,6 +1,6 @@
 // ici on import les actions
 
-import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL } from "../action/animal";
+import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL, MORE_ONE_INDEX } from "../action/animal";
 import {
   SAVE_ONE_PHOTO,
   SAVE_CARD_IMG,
@@ -15,6 +15,7 @@ export const initialState = {
   PictureUnique: null, // la photo presente sur la fiche
   PictureCard: [], // Stock les imgs des cards
   PictureName: "", // le nom de la data pour checker si c'est la bonne img
+  CountImgIndex: 0,
 };
 
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
@@ -55,6 +56,15 @@ function animalReducer(state = initialState, action = {}) {
           PictureCard: action.value,
           PictureName: action.recherche,
       };
+      
+      // Ici on save la photo de chaque card
+    case MORE_ONE_INDEX:
+      return {
+        ...state,
+        CountImgIndex: action.value,
+      };
+
+      
 
     //rien ne change en dessous
     default:
