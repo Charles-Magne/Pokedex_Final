@@ -7,7 +7,8 @@ import {
   MORE_ONE_INDEX_CAT,
   MORE_ONE_INDEX_APP,
   REMEMBER_NAME_TOW,
-  REMEMBER_NAME
+  REMEMBER_NAME,
+  COUNT_TO_ZERO,
 } from "../action/animal";
 import { SAVE_ONE_PHOTO, SAVE_CARD_IMG } from "../action/animalPhoto";
 
@@ -90,10 +91,19 @@ function animalReducer(state = initialState, action = {}) {
         namesave: action.value,
       };
 
+            // Ici On save le name pour pouvoir le recuperer dans les cards et le comparer aux names qui arrivent
+    case COUNT_TO_ZERO:
+      return {
+        ...state,
+        CountImgIndex: action.value,
+      };
+
     //rien ne change en dessous
     default:
       return state;
   }
 }
+
+
 
 export default animalReducer;

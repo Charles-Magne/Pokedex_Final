@@ -22,6 +22,7 @@ import {
   moreOneIndexApp,
   rememberNametow,
   rememberName,
+  countToZero,
 } from "../../action/animal";
 
 //---------------------La fonction--------------------------------
@@ -31,8 +32,10 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchCardImg(name));
+    dispatch(countToZero(zero));
   }, []);
 
+  const zero = 0;
   const nameEnCours = useSelector((state) => state.animal.namesave);
 
   // L'index qui s'incremente pour cibler la bonne div

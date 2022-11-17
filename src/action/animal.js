@@ -102,6 +102,16 @@ export function rememberNametow(name) {
   };
 }
 
+// lors du useeffect de la card on remet de count a zero
+export const COUNT_TO_ZERO = "COUNT_TO_ZERO";
+
+export function countToZero(zero) {
+  return {
+    type: COUNT_TO_ZERO,
+    value: zero,
+  };
+}
+
 
 
 
