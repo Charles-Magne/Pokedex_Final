@@ -1,10 +1,15 @@
 // ici on import les actions
 
-import { SAVE_ANIMAL, SAVE_SEARCH, SAVE_URL_ANIMAL, MORE_ONE_INDEX } from "../action/animal";
 import {
-  SAVE_ONE_PHOTO,
-  SAVE_CARD_IMG,
-} from "../action/animalPhoto";
+  SAVE_ANIMAL,
+  SAVE_SEARCH,
+  SAVE_URL_ANIMAL,
+  MORE_ONE_INDEX_CAT,
+  MORE_ONE_INDEX_APP,
+  REMEMBER_NAME_TOW,
+  REMEMBER_NAME
+} from "../action/animal";
+import { SAVE_ONE_PHOTO, SAVE_CARD_IMG } from "../action/animalPhoto";
 
 //on appelle le initalSate
 export const initialState = {
@@ -16,12 +21,12 @@ export const initialState = {
   PictureCard: [], // Stock les imgs des cards
   PictureName: "", // le nom de la data pour checker si c'est la bonne img
   CountImgIndex: 0,
+  namesave: null,
 };
 
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
 function animalReducer(state = initialState, action = {}) {
   switch (action.type) {
-
     case SAVE_ANIMAL:
       return {
         ...state,
@@ -53,18 +58,37 @@ function animalReducer(state = initialState, action = {}) {
     case SAVE_CARD_IMG:
       return {
         ...state,
-          PictureCard: action.value,
-          PictureName: action.recherche,
+        PictureCard: action.value,
+        PictureName: action.recherche,
       };
-      
-      // Ici on save la photo de chaque card
-    case MORE_ONE_INDEX:
+
+    // Ici On increment l'index des photos en cas de photos recus via l'app
+    case MORE_ONE_INDEX_APP:
       return {
         ...state,
         CountImgIndex: action.value,
       };
 
-      
+    // Ici On increment l'index des photos lorsque l'on rajoute une photo de chat a la place d'une donnée manquante
+    case MORE_ONE_INDEX_CAT:
+      return {
+        ...state,
+        CountImgIndex: action.value,
+      };
+
+    // Ici On save le name pour pouvoir le recuperer dans les cards et le comparer aux names qui arrivent
+    case REMEMBER_NAME_TOW:
+      return {
+        ...state,
+        namesave: action.value,
+      };
+
+          // Ici On save le name pour pouvoir le recuperer dans les cards et le comparer aux names qui arrivent
+    case REMEMBER_NAME:
+      return {
+        ...state,
+        namesave: action.value,
+      };
 
     //rien ne change en dessous
     default:

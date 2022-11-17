@@ -62,15 +62,47 @@ export function saveUrlAnimal(name) {
   };
 }
 
-// utiliser pour recevoir les datas d'un seul animal qu'on envoie au stat
-export const MORE_ONE_INDEX = "MORE_ONE_INDEX";
+// On incremente l'index lorsque on lie une img via l'app
+export const MORE_ONE_INDEX_APP = "MORE_ONE_INDEX_APP";
 
-export function moreOneIndex(indexIncrementation) {
+export function moreOneIndexApp(indexIncrementation) {
   return {
-    type: MORE_ONE_INDEX,
+    type: MORE_ONE_INDEX_APP,
     value: indexIncrementation,
   };
 }
+
+// On incremente l'index lorsque on Rajoute un img manquante (cat)
+export const MORE_ONE_INDEX_CAT = "MORE_ONE_INDEX_CAT";
+
+export function moreOneIndexCat(indexIncrementation) {
+  return {
+    type: MORE_ONE_INDEX_CAT,
+    value: indexIncrementation,
+  };
+}
+
+// On place le name dans le reducer pour le garder en memoire
+export const REMEMBER_NAME = "REMEMBER_NAME";
+
+export function rememberName(name) {
+  return {
+    type: REMEMBER_NAME,
+    value: name,
+  };
+}
+
+// On place le name dans le reducer pour le garder en memoire
+export const REMEMBER_NAME_TOW = "REMEMBER_NAME_TOW";
+
+export function rememberNametow(name) {
+  return {
+    type: REMEMBER_NAME_TOW,
+    value: name,
+  };
+}
+
+
 
 
 
