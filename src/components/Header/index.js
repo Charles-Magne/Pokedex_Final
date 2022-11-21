@@ -13,7 +13,6 @@ import titreBlanc  from "../../assets/pictures/Anim'o_blanc_2.png";
 
 function Header() {
  
-  
   const clicEncyclo = document.querySelector('.nav-bar-encyclo');
   const clicChaine = document.querySelector('.nav-bar-Chaine');
   const clicClassi = document.querySelector('.nav-bar-Classi')
@@ -48,7 +47,6 @@ function Header() {
           <p className="titleComment" >L'encyclopedie pour tout savoir sur les animaux</p>
         </Link>
         <nav className="navbar">
-          {/* En dessous placer le toggle                   V*/}
           <Link to="/" className="nav-bar-encyclo nav-bar_cat">
             Encyclopedie
           </Link>

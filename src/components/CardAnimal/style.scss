@@ -1,6 +1,6 @@
 @use "../../assets/styles/vars.scss";
 
-.card-animal{
+.card-animal {
   border: solid 1px vars.$green-main;
   border-radius: 0.5rem;
   display: flex;
@@ -11,20 +11,21 @@
   padding: 0 1rem 0 0;
 }
 
-.card-animal:hover{
+.card-animal:hover {
   position: relative;
   top: 5px;
-  
+
 }
 
-.selection-right{
+.selection-right {
   display: flex;
   flex-direction: column;
   margin: 1rem 0 0 0;
   font-family: vars.$police-Main;
+  width: 60%;
 }
 
-.animal-name{
+.animal-name {
   display: block;
   font-size: 1.5rem;
   margin: 0 1rem 0.5rem 1rem;
@@ -33,37 +34,37 @@
   font-family: vars.$police-Main;
 }
 
-.animal-class{
+.animal-class {
   display: block;
 }
 
-.animal-sort{
+.animal-sort {
   margin: 0.6rem 0 0 1rem;
   font-family: vars.$police-Main;
   font-weight: 700;
 }
 
-.animal-underSort{
+.animal-underSort {
   margin: 0.6rem 0 0 1rem;
   font-family: vars.$police-Main;
   font-weight: 700;
 }
 
-.selection-left{
+.selection-left {
   display: flex;
   flex-direction: row;
 }
 
-.img1{
+.img1 {
   display: block;
-  width: 15rem;
+  width: 12rem;
   height: 13rem;
   margin: 0.5rem;
   border-radius: 0.5rem;
   margin: 1rem 0 1rem 1rem;
 }
 
-.selection-down__right{
+.selection-down__right {
   display: flex;
   flex-direction: row;
   display: flex;
@@ -71,21 +72,24 @@
   margin: 1rem 0 0 2rem;
 }
 
-.contenaire-info{
-  margin: 0 0 0 0;
+.contenaire-info {
+  margin: 0 0 1rem 0;
   font-family: vars.$police-Main;
   font-weight: 700;
-  line-height: 2rem;
+  height: 2rem;
+  width: 19rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.icone{
+.icone {
   width: 2rem;
   margin: 0 0 0 0;
 }
 
-.info-name{
+.info-name {
   position: relative;
-  margin:  0 0 1rem 1rem;
+  margin: 0 0 1rem 1rem;
   bottom: 0.8rem;
   font-size: 0.8rem;
   font-weight: 700;
@@ -95,21 +99,21 @@
 @media screen and (max-width: 870px) {
 
 
-  .selection-left{
+  .selection-left {
     display: flex;
     flex-direction: column;
   }
 
-  .card-animal{
+  .card-animal {
     position: relative;
     width: 28rem;
   }
 
-  .contenerSelection{
+  .contenerSelection {
     width: 100%;
   }
 
-  .animal-name{
+  .animal-name {
     position: absolute;
     top: 0px;
     text-align: center;
@@ -117,7 +121,7 @@
     margin: 0.5rem 0 0 1rem;
   }
 
-  .animal-class{
+  .animal-class {
     position: absolute;
     top: 1rem;
     margin: 1.2rem 0 0 0rem;
@@ -125,15 +129,15 @@
     text-align: center;
   }
 
-  .img1{
+  .img1 {
     display: block;
-     width: 17rem;
+    width: 17rem;
     height: 15rem;
     border-radius: 0.5rem;
     margin: 4rem auto 1rem auto;
   }
 
-  .contenaire-info{
+  .contenaire-info {
     margin: 0 auto 0 auto;
     font-family: vars.$police-Main;
     font-weight: 700;
@@ -143,7 +147,7 @@
 
 //On modifie la card lorsque l'ecran se retrecite
 @media screen and (max-width: 780px) {
-  .card-animal{
+  .card-animal {
     position: relative;
     width: 22rem;
   }

@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+//Les actions
+import { fetchAllAnimal } from "../../action/animal.js";
+
 //On import les composants dont on a besoin
 import Header from "../Header";
 import Accueil from "../Accueil";
@@ -13,23 +16,14 @@ import Footer from "../Footer";
 import Team from "../Team";
 import Erreur404 from "../404";
 
-//les actions
-import { fetchAllAnimal } from "../../action/animal.js";
-
-
-
 // == Composant
 function App() {
 
- 
   const dispatch = useDispatch();
 
-  // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchAllAnimal());
-    
-  }, []
-  );
+  } )
 
   //<Route path="/Ici c'est le chemin de la page " element={<Le element correspond au composant />} /
   return (

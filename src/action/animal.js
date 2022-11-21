@@ -112,6 +112,29 @@ export function countToZero(zero) {
   };
 }
 
+// lors du useeffect de la card on remet le savename a zero
+export const TO_ZERO_SAVE_NAME = "TO_ZERO_SAVE_NAME";
+
+export function toZeroSaveName(value) {
+  return {
+    type: TO_ZERO_SAVE_NAME,
+    value: '',
+  };
+}
+
+// lors du useeffect de la card on remet le Picturename a zero
+export const TO_ZERO_PICTURE_NAME = "TO_ZERO_PICTURE_NAME";
+
+export function toZeroPictureName(value) {
+  return {
+    type: TO_ZERO_PICTURE_NAME,
+    value: '',
+  };
+}
+
+
+
+
 
 
 

@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 //Les composants
-import Header from "../Header";
 import CardAnimal from "../CardAnimal";
 
 //les icones
@@ -17,7 +16,7 @@ import look from "../../assets/icone/Search.png";
 //Les actions
 import { saveSearch, sendSearch } from "../../action/animal";
 import { ClickHeaderEncyclo } from "../../action/link.js";
-
+//import { fetchAllAnimal } from "../../action/animal.js";
 
 // font alsome
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,31 +28,37 @@ function Accueil() {
 
   //Importation des datas au chargement
   const dispatch = useDispatch();
+  
   const { nameUrl } = useParams();
 
+    // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
 
-  //Ici on n'indique qu'on se trouve sur l'acceuil
-  dispatch(ClickHeaderEncyclo("Encyclo"));
+  useEffect(() => {
+    //Ici on n'indique qu'on se trouve sur l'acceuil
+    dispatch(ClickHeaderEncyclo("Encyclo"));
+    //dispatch(fetchAllAnimal());
+    console.log('-------------------*****************Le useeffect de acceuil****************************');
+  }, []);
 
+  
+ console.log('Le js de acceuil******************************************');
 
   // Ici on import le state dans la barre de recherche
   const searchValue = useSelector((state) => state.searchFunction);
 
-    // Ici on import le sous-state list (l'api) pour l'utiliser dans les cards
-    const list = useSelector((state) => state.animal.list);
+  // Ici on import le sous-state list (l'api) pour l'utiliser dans les cards
+  const list = useSelector((state) => state.animal.list);
 
   //Envoie de l'input au state
   const changeValue = (event) => {
     dispatch(saveSearch(event.currentTarget.value, "searchValue"));
   };
 
-
-//submit du search pour nouvelle requete api
-const valideValue = (event) => {
-  event.preventDefault();
-  dispatch(sendSearch(event));
-};
-
+  //submit du search pour nouvelle requete api
+  const valideValue = (event) => {
+    event.preventDefault();
+    dispatch(sendSearch(event));
+  };
 
   // ---------------------le composant--------------------------------
   return (
@@ -92,8 +97,8 @@ const valideValue = (event) => {
                 alt="arrow_down"
               >
                 <option defaultValue>Biome</option>
-                <option value >Aride</option>
-                <option value >Forêt</option>
+                <option value>Aride</option>
+                <option value>Forêt</option>
               </select>
 
               <select
@@ -101,7 +106,7 @@ const valideValue = (event) => {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option defaultValue >Pays</option>
+                <option defaultValue>Pays</option>
                 <option value>France</option>
                 <option value>Angleterre</option>
                 <option value>Etat-unis</option>
@@ -112,7 +117,7 @@ const valideValue = (event) => {
                 src={arrowDown}
                 alt="arrow_down"
               >
-                <option defaultValue >Regime alimentaire</option>
+                <option defaultValue>Regime alimentaire</option>
                 <option value>Ommnivore</option>
                 <option value>Carnivore</option>
                 <option value>Herbivore</option>
@@ -133,7 +138,7 @@ const valideValue = (event) => {
             {/* V permet de voir toutes les clees possible pour identifier les ressources
             //!on peut mettre du css dans un console.log
               console.log('Test =>',Object.keys(list))      */}
-            
+
             {/*ici on vas rentrer la card animal en fonction du stat */}
           </div>
         </div>
@@ -142,6 +147,5 @@ const valideValue = (event) => {
     </div>
   );
 }
-
 
 export default Accueil;

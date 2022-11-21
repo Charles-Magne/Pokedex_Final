@@ -9,6 +9,8 @@ import {
   REMEMBER_NAME_TOW,
   REMEMBER_NAME,
   COUNT_TO_ZERO,
+  TO_ZERO_SAVE_NAME,
+  TO_ZERO_PICTURE_NAME,
 } from "../action/animal";
 import { SAVE_ONE_PHOTO, SAVE_CARD_IMG } from "../action/animalPhoto";
 
@@ -21,8 +23,8 @@ export const initialState = {
   PictureUnique: null, // la photo presente sur la fiche
   PictureCard: [], // Stock les imgs des cards
   PictureName: "", // le nom de la data pour checker si c'est la bonne img
-  CountImgIndex: 0,
-  namesave: null,
+  CountImgIndex: 0, // un index qui sert a parcourir les tableaux de datas
+  namesave: null, // sert a comparer les nom d'animaux pour savoir s'il faut ou passer au suivant
 };
 
 // APPEL_API 4- dans le reducer, on indique que lorsque que l'on a recuperer les datas de l'api on doit les placer dans le state
@@ -97,6 +99,23 @@ function animalReducer(state = initialState, action = {}) {
         ...state,
         CountImgIndex: action.value,
       };
+
+   // lorsque la card est  creer on vient vider le reducer pour repartir de zero
+   case TO_ZERO_SAVE_NAME:
+    return {
+      ...state,
+      namesave: action.value,
+    };
+
+
+     // lorsque la card est  creer on vient vider le reducer pour repartir de zero
+   case TO_ZERO_PICTURE_NAME:
+    return {
+      ...state,
+      PictureName:action.value ,
+    };
+    TO_ZERO_PICTURE_NAME
+      
 
     //rien ne change en dessous
     default:

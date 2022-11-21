@@ -23,19 +23,26 @@ import {
   rememberNametow,
   rememberName,
   countToZero,
+  toZeroSaveName,
+  toZeroPictureName,
 } from "../../action/animal";
 
 //---------------------La fonction--------------------------------
-function CardAnimal({ name, taxonomy, locations, characteristics }) {
+function CardAnimal({ name, characteristics }) {
   const dispatch = useDispatch();
+
+  const zero = 0;
 
   // APPEL_API 1- On initie un dispatch qui va appeler une fonction qui est dans les actions
   useEffect(() => {
     dispatch(fetchCardImg(name));
     dispatch(countToZero(zero));
+    dispatch(toZeroSaveName(''));
+    dispatch(toZeroPictureName(''));
   }, []);
 
-  const zero = 0;
+ // Le use selector pour cibler la bonne data
+
   const nameEnCours = useSelector((state) => state.animal.namesave);
 
   // L'index qui s'incremente pour cibler la bonne div
@@ -43,16 +50,22 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
   // La photo de l'animal qu'il faut appeler
   const animalImg = useSelector((state) => state.animal.PictureCard);
+
   //On destructure le state pour les imgs
   const listImg = { ...animalImg };
 
-  const listImg1 = { ...listImg.hits }[indexImg];
+  const listImg1 = { ...listImg.hits }[0];
 
   // Le nom de l'animal pour savoir quand appeler l'img
   const animalName = useSelector((state) => state.animal.PictureName);
 
-  // V si la const de dessus ne marche pas, on utilise celle la.
-  //const listImgTrue = { ...listImg1 };
+  // on va chercher les datas dans le state
+  const dataAnnimal = useSelector((state) => state.animal.list);
+
+  const dataAnimal = {...dataAnnimal};
+  
+  const srcanimaux = dataAnimal[indexImg];
+
 
   // On incrermente l'index d'un pour dispatcher
   const indexIncrementation = indexImg + 1;
@@ -62,13 +75,14 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
   const imgTarget = imgTrue[indexImg];
   //-------------------********************************--------------------
-  //nameEnCours
+  //Si on est deja en train de gerer ce name, on block le processe ici pour ne pas creer de boucle infinie
   if (nameEnCours == name) {
-    console.log('on ne fait rien');
+    console.log('on ne fait rien', nameEnCours);
   }
   //Si le nom de la card est egal au nom du reducer ...
   else if (animalName == name) {
     console.log("-----------------");
+    console.log('les datas avec index', srcanimaux.taxonomy.class);
     console.log("-1-check de la photo card", imgTarget);
     console.log("0-la data qu'on veut utiliser", listImg1);
     console.log("1-le animalname =>", animalName);
@@ -99,16 +113,11 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
         dispatch(rememberNametow(name));
         console.log(" 7- l index a la fin", indexIncrementation);
       }
-    } else {
+    } else if (indexImg = imgTrue.length - 1) {
       console.log("on ne fait rien");
     }
   }
 //----------------------------**********************************---------------
-  // V La ternaire que je ne vais pas utiliser
-  //Si l'image url est undefined on place le chat en block sinon on le passe en none
-  //photoPicture.largeImageURL == undefined ? imgCat.style.display = "block" : imgCat.style.display = "none";
-  //Si l'image url est undefined on place l'animal en none sinon on le passe en block
-  //photoPicture.largeImageURL == undefined ? img.style.display = "none" : img.style.display = "flex";
 
   //RAPPEL => Condition ? exprSiVrai : exprSiFaux
   // Ici Une ternaire qui gere l'affichage de l'habiat si nul => on affiche inconnu
@@ -116,10 +125,10 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
     characteristics.habitat !== undefined ? characteristics.habitat : "Inconnu";
 
   // Ici Une ternaire qui gere l'affichage de la premiere location si nul => on affiche inconnu
-  const toggleLocation = locations[0] == undefined ? "Inconnu" : locations[0];
+  const toggleLocation = srcanimaux.locations[0] == undefined ? "Inconnu" : srcanimaux.locations[0];
 
   // Ici Une ternaire qui gere l'affichage de la deuxieme location si nul => on affiche rien
-  const toggleLocation1 = locations[1] == undefined ? "" : locations[1];
+  const toggleLocation1 = srcanimaux.locations[1] == undefined ? "" : srcanimaux.locations[1];
 
   const urlSlug = name;
   // ---------------------le composant--------------------------------
@@ -131,8 +140,8 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
           <div className="selection-right">
             <span className="animal-name">{name}</span>
             <div className="animal-class">
-              <span className="animal-sort">{taxonomy.order}</span>
-              <span className="animal-underSort">{taxonomy.family}</span>
+              <span className="animal-sort">{srcanimaux.taxonomy.order}</span>
+              <span className="animal-underSort">{srcanimaux.taxonomy.family}</span>
             </div>
             <div className="selection-down__right">
               <div className="contenaire-info">
@@ -141,7 +150,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
                   src={biome}
                   alt="word_icone"
                 />
-                <span className="info-name info-habitat"> {toggleHabitat}</span>
+                <span className="info-name info-habitat" > {toggleHabitat}</span>
               </div>
               <div className="contenaire-info">
                 <img
@@ -149,7 +158,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
                   src={globe}
                   alt="world icone"
                 />
-                <span className="info-name info-locations">
+                <span className="info-name info-locations" >
                   {toggleLocation} {""} {toggleLocation1}
                 </span>
               </div>
@@ -159,7 +168,7 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
                   src={plate}
                   alt="word icone"
                 />
-                <span className="info-name">{characteristics.diet}</span>
+                <span className="info-name" >{srcanimaux.characteristics.diet}</span>
               </div>
             </div>
           </div>
@@ -171,9 +180,6 @@ function CardAnimal({ name, taxonomy, locations, characteristics }) {
 
 CardAnimal.prototype = {
   name: PropTypesLib.string.isRequired,
-  taxonomy: PropTypesLib.object.isRequired,
-  locations: PropTypesLib.object.isRequired,
-  characteristics: PropTypesLib.object.isRequired,
 };
 
 export default CardAnimal;

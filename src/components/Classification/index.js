@@ -8,7 +8,13 @@ function Classification () {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
     dispatch(ClickHeaderClassi("Classi"));
+  }, []);
+
+
+
+    
 
   return (
     <div>
